@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://withtomoni.com/sitemap.xml
