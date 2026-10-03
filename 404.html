@@ -2,9 +2,10 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page not found · Tomoni AI</title>
-<meta name="description" content="Tomoni is an independent AI consultancy.">
+<meta name="description" content="Tomoni is an independent AI consultancy. We help businesses work out where AI genuinely makes them more efficient, and build it in where it does.">
 <link rel="canonical" href="https://withtomoni.com/404.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -13,17 +14,21 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tomoni AI">
 <meta property="og:title" content="Page not found · Tomoni AI">
-<meta property="og:description" content="Tomoni is an independent AI consultancy.">
+<meta property="og:description" content="Tomoni is an independent AI consultancy. We help businesses work out where AI genuinely makes them more efficient, and build it in where it does.">
 <meta property="og:url" content="https://withtomoni.com/404.html">
-<meta property="og:image" content="https://withtomoni.com/hero-poster.jpg">
+<meta property="og:image" content="https://withtomoni.com/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tomoni AI: we help businesses think bigger and run lighter, together.">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"><style>
+<meta name="twitter:image" content="https://withtomoni.com/og-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"></noscript><style>
 :root{
   --paper:#FFFFFF; --soft:#F5F3EF; --ink:#1A1A1A; --mid:#6A6A6A; --faint:#7B766F; --line:#E2DED8;
   --accent:#3D3A7A; --accent-deep:#2B2858; --accent-tint:#ECEAF4; --accent-mid:#B3B0DA;
   --good:#3B6B4E; --good-tint:#EBF0EC; --warm:#B3612A; --warm-tint:#F5EDE6;
-  --type:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --type:"Zen Kaku Latin","Zen Kaku Gothic New","Zen Fallback","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
 }
 :root[data-theme="dark"]{--paper:#141414; --soft:#1F1F1F; --ink:#F2F0EC; --mid:#B8B4AE; --faint:#8C8780; --line:#333333; --accent:#9A96D6; --accent-deep:#2B2858; --accent-tint:#262445; --accent-mid:#B3B0DA; --good:#9DBFA9; --good-tint:#1E2B22; --warm:#D99A6A; --warm-tint:#3A2A1E;}
 *{box-sizing:border-box}
@@ -559,12 +564,14 @@ section.ls .head p{font-size:18px;color:var(--mid);max-width:56ch;margin-top:14p
 @media (max-width:900px){.vtl li{grid-template-columns:1fr;gap:0}.vtl p{padding-top:12px}}
 @media (max-width:640px){.vtl li{padding-left:80px;padding-bottom:40px}.vtl .n{width:56px;height:56px;font-size:22px;box-shadow:0 0 0 5px var(--accent-tint)}.vtl li::before{left:27px;top:62px;width:2px}.vtl h3{padding-top:8px}}
 /* why: nine facts as ruled cells */
-.grid9{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.grid9 > div{padding:28px 28px 30px 0;margin-right:28px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-.grid9 > div:nth-child(3n){border-right:0;margin-right:0;padding-right:0}
-.grid9 b{display:block;font-family:var(--type);font-weight:700;font-size:19px;line-height:1.2;letter-spacing:-.01em}
-.grid9 span{display:block;font-size:15px;color:var(--mid);margin-top:8px}
-@media (max-width:760px){.grid9{grid-template-columns:1fr}.grid9 > div{border-right:0;margin-right:0;padding-right:0}}
+.trows{border-top:1px solid var(--line)}
+.trows > div{display:grid;grid-template-columns:72px 1fr 1.05fr;gap:10px 40px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.trows .tn{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.trows h3{font-family:var(--type);font-weight:700;font-size:clamp(21px,2.4vw,30px);line-height:1.12;letter-spacing:-.015em;margin:0;transition:color .25s ease}
+.trows > div:hover h3{color:var(--accent)}
+.trows p{font-size:16px;line-height:1.55;color:var(--mid);max-width:52ch;margin:0}
+.trust{font-size:15px;color:var(--mid);margin-top:26px}
+@media (max-width:900px){.trows > div{grid-template-columns:52px 1fr;gap:6px 18px}.trows p{grid-column:2}}
 /* two columns of text */
 .sidebyside{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .sidebyside p{max-width:52ch}
@@ -645,12 +652,14 @@ section.ls.black p{color:#D8D8D8}
   .cstat b{font-size:19px}.cstat span{font-size:12px}.cstat > div{padding:9px 12px;gap:10px}
   .vtl h3{font-size:22px;padding-top:6px}.vtl .when{font-size:13px;margin-top:4px}.vtl p{font-size:15px;line-height:1.55;padding-top:10px}.vtl .out{font-size:13px;margin-top:10px}
   .vtl li{padding-left:66px;padding-bottom:30px}.vtl .n{width:48px;height:48px;font-size:19px;box-shadow:0 0 0 4px var(--accent-tint)}.vtl li::before{left:23px;top:54px;width:2px}
-  .grid9 > div{padding:14px 0 14px}
-  .grid9 b{font-size:15px;line-height:1.3;padding-right:28px;position:relative;cursor:pointer}
-  .grid9 b::after{content:"+";position:absolute;right:0;top:-2px;font-weight:500;font-size:20px;color:var(--accent)}
-  .grid9 > div.open b::after{content:"\2013"}
-  .grid9 span{display:none;font-size:14px;line-height:1.5;margin-top:6px}
-  .grid9 > div.open span{display:block}
+  .trows > div{padding:14px 0 14px;grid-template-columns:34px 1fr}
+  .trows .tn{font-size:11px}
+  .trows h3{font-size:16px;line-height:1.3;padding-right:28px;position:relative;cursor:pointer}
+  .trows h3::after{content:"+";position:absolute;right:0;top:-2px;font-weight:500;font-size:20px;color:var(--accent)}
+  .trows > div.open h3::after{content:"\2013"}
+  .trows p{display:none;font-size:14px;line-height:1.5;margin-top:6px}
+  .trows > div.open p{display:block}
+  .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:15px;line-height:1.55}
   .portrait{max-width:280px}
   .cdetails a{font-size:17px}.cdetails{gap:8px;margin-top:22px;padding-top:18px}
@@ -714,6 +723,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 .ptop .back{font-size:14px;color:var(--mid);text-decoration:none}
 .ptop .back:hover{color:var(--accent)}
 </style>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/zk-latin-400.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/zk-latin-900.woff2" crossorigin><style>@font-face{font-family:"Zen Kaku Latin";font-weight:400;font-display:swap;src:url(/fonts/zk-latin-400.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:500;font-display:swap;src:url(/fonts/zk-latin-500.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:700;font-display:swap;src:url(/fonts/zk-latin-700.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:900;font-display:swap;src:url(/fonts/zk-latin-900.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}</style><style>@font-face{font-family:"Zen Fallback";font-weight:400;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica");size-adjust:97.62%;ascent-override:118.83%;descent-override:29.5%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:500;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica");size-adjust:98.15%;ascent-override:118.18%;descent-override:29.34%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Helvetica Bold");size-adjust:91.64%;ascent-override:126.58%;descent-override:31.43%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:900;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Helvetica Bold");size-adjust:91.89%;ascent-override:126.23%;descent-override:31.34%;line-gap-override:0%}</style>
 </head>
 <body>
 <section class="ls"><div class="lwrap prose"><span class="eyebrow">Page not found</span><h1>That page is not here<span class="dot">.</span></h1><p><a href="/">Go to the Tomoni AI home page</a>.</p></div></section>

@@ -1,0 +1,2 @@
+zk-latin-*.woff2 are Latin-only subsets of Zen Kaku Gothic New (Yoshimichi Ohira),
+made with pyftsubset from the installed TTFs. Licensed under the SIL Open Font License 1.1.
