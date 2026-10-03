@@ -660,15 +660,19 @@ section.ls .head p{font-size:18px;color:var(--mid);max-width:56ch;margin-top:14p
 @media (max-width:900px){.vtl li{grid-template-columns:1fr;gap:0}.vtl p{padding-top:12px}}
 @media (max-width:640px){.vtl li{padding-left:80px;padding-bottom:40px}.vtl .n{width:56px;height:56px;font-size:22px;box-shadow:0 0 0 5px var(--accent-tint)}.vtl li::before{left:27px;top:62px;width:2px}.vtl h3{padding-top:8px}}
 /* why: nine facts as ruled cells */
-.four{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.four > div{padding:44px 44px 46px 0;margin-right:44px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-.four > div:nth-child(2n){border-right:0;margin-right:0;padding-right:0}
-.four .flab{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.four .flab span{color:var(--accent);margin-right:14px}
-.four h3{font-family:var(--type);font-weight:700;font-size:clamp(23px,2.6vw,33px);line-height:1.18;letter-spacing:-.015em;margin-top:16px;max-width:24ch}
-.four .fitems{font-size:14px;color:var(--faint);margin-top:18px}
+.places{border-top:1px solid var(--line)}
+.place{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:64px;align-items:center;padding:72px 0;border-bottom:1px solid var(--line)}
+.place:nth-child(even) .ptxt{order:2}
+.place:nth-child(even) .pfig{order:1}
+.place .flab{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.place .flab span{color:var(--accent);margin-right:14px}
+.place h3{font-family:var(--type);font-weight:700;font-size:clamp(27px,3.2vw,42px);line-height:1.14;letter-spacing:-.018em;margin-top:18px;max-width:22ch}
+.place .fitems{font-size:14px;color:var(--faint);margin-top:20px}
+.pfig{margin:0;background:var(--soft);border:1px solid var(--line);padding:26px 26px 18px}
+.pfig svg{display:block;width:100%;height:auto;color:var(--ink)}
+.pfig figcaption{font-family:var(--type);font-size:13px;color:var(--faint);margin-top:10px;line-height:1.4}
 .trust{font-size:15px;color:var(--mid);margin-top:26px}
-@media (max-width:900px){.four{grid-template-columns:1fr}.four > div{border-right:0;margin-right:0;padding-right:0}}
+@media (max-width:900px){.place{grid-template-columns:1fr;gap:24px;padding:44px 0}.place:nth-child(even) .ptxt{order:0}.place:nth-child(even) .pfig{order:0}}
 /* two columns of text */
 .sidebyside{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .sidebyside p{max-width:52ch}
@@ -749,10 +753,12 @@ section.ls.black p{color:#D8D8D8}
   .cstat b{font-size:19px}.cstat span{font-size:12px}.cstat > div{padding:9px 12px;gap:10px}
   .vtl h3{font-size:22px;padding-top:6px}.vtl .when{font-size:13px;margin-top:4px}.vtl p{font-size:15px;line-height:1.55;padding-top:10px}.vtl .out{font-size:13px;margin-top:10px}
   .vtl li{padding-left:66px;padding-bottom:30px}.vtl .n{width:48px;height:48px;font-size:19px;box-shadow:0 0 0 4px var(--accent-tint)}.vtl li::before{left:23px;top:54px;width:2px}
-  .four > div{padding:22px 0 24px}
-  .four .flab{font-size:11px}
-  .four h3{font-size:19px;line-height:1.25;margin-top:8px;max-width:none}
-  .four .fitems{font-size:12px;margin-top:10px}
+  .place{padding:30px 0;gap:16px}
+  .place .flab{font-size:11px}
+  .place h3{font-size:21px;line-height:1.22;margin-top:8px;max-width:none}
+  .place .fitems{font-size:12px;margin-top:10px}
+  .pfig{padding:16px 16px 12px}
+  .pfig figcaption{font-size:12px}
   .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:15px;line-height:1.55}
   .portrait{max-width:280px}
@@ -887,19 +893,140 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 </div></section>
 <section id="built" class="ls"><div class="lwrap">
   <div class="head"><span class="eyebrow">What we build</span><h2>Four places we help<span class="dot">.</span></h2><p>Most of the time a business loses sits in the same four places. This is what we build in each of them.</p></div>
-  <div class="four">
-    <div><p class="flab"><span>01</span>Enquiries and customers</p>
-      <h3>Every enquiry answered straight away, and the people who bought before invited back.</h3>
-      <p class="fitems">Never lose an enquiry &middot; Bring customers back &middot; Be found by people looking for you</p></div>
-    <div><p class="flab"><span>02</span>Admin and paperwork</p>
-      <h3>The forms, the chasing and the filing, done without anyone giving up an evening.</h3>
-      <p class="fitems">Cut the admin &middot; Stay compliant without the panic &middot; Stop chasing money</p></div>
-    <div><p class="flab"><span>03</span>Systems and numbers</p>
-      <h3>Your software connected, and the numbers that matter arriving on their own.</h3>
-      <p class="fitems">Make your systems talk to each other &middot; Know your numbers without doing the sums</p></div>
-    <div><p class="flab"><span>04</span>Words and know-how</p>
-      <h3>Written once, in your voice, and never lost when someone moves on.</h3>
-      <p class="fitems">Write it once, use it everywhere &middot; Keep the know-how when staff change</p></div>
+  <div class="places">
+    <div class="place"><div class="ptxt">
+        <p class="flab"><span>01</span>Enquiries and customers</p>
+        <h3>Every enquiry answered straight away, and the people who bought before invited back.</h3>
+        <p class="fitems">Never lose an enquiry &middot; Bring customers back &middot; Be found by people looking for you</p>
+      </div><figure class="pfig">
+    <svg viewBox="0 0 520 230" role="img" aria-label="Five enquiry channels flow into one inbox, which replies, sorts and chases automatically">
+      <defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="currentColor"/></marker>
+      <marker id="arac" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/></marker></defs>
+      <g>
+        <rect class="box" x="10" y="14" width="118" height="26" rx="13"/><text x="69" y="31" text-anchor="middle">Website form</text>
+        <rect class="box" x="10" y="56" width="118" height="26" rx="13"/><text x="69" y="73" text-anchor="middle">Email</text>
+        <rect class="box" x="10" y="98" width="118" height="26" rx="13"/><text x="69" y="115" text-anchor="middle">Instagram DM</text>
+        <rect class="box" x="10" y="140" width="118" height="26" rx="13"/><text x="69" y="157" text-anchor="middle">WhatsApp</text>
+        <rect class="box" x="10" y="182" width="118" height="26" rx="13"/><text x="69" y="199" text-anchor="middle">Missed call</text>
+      </g>
+      <g class="ln">
+        <path d="M128,27 C170,27 170,111 205,111" marker-end="url(#ar)"/>
+        <path d="M128,69 C170,69 170,111 205,111" marker-end="url(#ar)"/>
+        <path d="M128,111 L205,111" marker-end="url(#ar)"/>
+        <path d="M128,153 C170,153 170,111 205,111" marker-end="url(#ar)"/>
+        <path d="M128,195 C170,195 170,111 205,111" marker-end="url(#ar)"/>
+      </g>
+      <rect class="box-ac" x="205" y="84" width="106" height="54" rx="6"/>
+      <text class="t-ondeep t-b" x="258" y="107" text-anchor="middle">One inbox</text>
+      <text class="t-ondeep t-sm" x="258" y="124" text-anchor="middle">everyone can see</text>
+      <g class="ln-ac">
+        <path d="M308,111 C350,111 350,40 385,40" marker-end="url(#arac)"/>
+        <path d="M308,111 L385,111" marker-end="url(#arac)"/>
+        <path d="M308,111 C350,111 350,182 385,182" marker-end="url(#arac)"/>
+      </g>
+      <text class="t-sm t-faint" x="346" y="98" text-anchor="middle">seconds</text>
+      <rect class="box-soft" x="388" y="24" width="122" height="32" rx="4"/><text class="t-b" x="449" y="44" text-anchor="middle">Replied instantly</text>
+      <rect class="box-soft" x="388" y="95" width="122" height="32" rx="4"/><text class="t-b" x="449" y="115" text-anchor="middle">Sorted &amp; assigned</text>
+      <rect class="box-soft" x="388" y="166" width="122" height="32" rx="4"/><text class="t-b" x="449" y="186" text-anchor="middle">Chased if ignored</text>
+    </svg>
+    <figcaption>Whatever channel a customer uses, it lands in the same place and gets the same response — and the follow-up happens whether or not anyone remembers.</figcaption>
+  </figure></div>
+    <div class="place"><div class="ptxt">
+        <p class="flab"><span>02</span>Admin and paperwork</p>
+        <h3>The forms, the chasing and the filing, done without anyone giving up an evening.</h3>
+        <p class="fitems">Cut the admin &middot; Stay compliant without the panic &middot; Stop chasing money</p>
+      </div><figure class="pfig">
+    <svg viewBox="0 0 520 210" role="img" aria-label="One form triggers the record, the folder, the welcome email and a chaser for missing documents, replacing manual retyping">
+      <defs><marker id="ar2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/></marker></defs>
+      <rect class="box-ac" x="10" y="60" width="104" height="48" rx="6"/>
+      <text class="t-ondeep t-b" x="62" y="80" text-anchor="middle">Customer fills</text><text class="t-ondeep t-b" x="62" y="96" text-anchor="middle">one form</text>
+      <g class="ln-ac">
+        <path d="M114,84 L150,84" marker-end="url(#ar2)"/>
+        <path d="M150,84 L150,26 L184,26" marker-end="url(#ar2)"/>
+        <path d="M150,84 L184,84" marker-end="url(#ar2)"/>
+        <path d="M150,84 L150,142 L184,142" marker-end="url(#ar2)"/>
+      </g>
+      <rect class="box-soft" x="188" y="10" width="120" height="32" rx="4"/><text x="248" y="30" text-anchor="middle">Record created</text>
+      <rect class="box-soft" x="188" y="68" width="120" height="32" rx="4"/><text x="248" y="88" text-anchor="middle">Folder created</text>
+      <rect class="box-soft" x="188" y="126" width="120" height="32" rx="4"/><text x="248" y="146" text-anchor="middle">Welcome email sent</text>
+      <g class="ln-ac"><path d="M308,26 L340,26" marker-end="url(#ar2)"/></g>
+      <rect class="box" x="344" y="10" width="166" height="32" rx="4"/><text x="427" y="30" text-anchor="middle">Anything missing?</text>
+      <g class="ln-ac"><path d="M427,42 L427,60" marker-end="url(#ar2)"/></g>
+      <rect class="box-soft" x="344" y="64" width="166" height="32" rx="4"/><text x="427" y="84" text-anchor="middle">Reminder day 2, day 5</text>
+      <g class="ln-ac"><path d="M427,96 L427,114" marker-end="url(#ar2)"/></g>
+      <rect class="box-soft" x="344" y="118" width="166" height="32" rx="4"/><text x="427" y="138" text-anchor="middle">Outstanding list for you</text>
+      <!-- the thing that goes away -->
+      <rect class="box-bad" x="96" y="174" width="318" height="28" rx="4"/>
+      <text class="t-bad" x="255" y="193" text-anchor="middle">Someone retypes it into three places</text>
+      <line class="ln-bad" x1="140" y1="189" x2="370" y2="189" stroke-dasharray="none" stroke-width="1.6"/>
+      <text class="t-sm t-faint" x="440" y="193" text-anchor="middle">— gone</text>
+    </svg>
+    <figcaption>One form does the work of four manual steps, and the chasing happens on a schedule instead of when someone remembers.</figcaption>
+  </figure></div>
+    <div class="place"><div class="ptxt">
+        <p class="flab"><span>03</span>Systems and numbers</p>
+        <h3>Your software connected, and the numbers that matter arriving on their own.</h3>
+        <p class="fitems">Make your systems talk to each other &middot; Know your numbers without doing the sums</p>
+      </div><figure class="pfig">
+    <svg viewBox="0 0 520 220" role="img" aria-label="Before: four systems with no connections. After: the same four systems joined through one customer record with labelled triggers">
+      <defs><marker id="ar3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/></marker></defs>
+      <text class="t-b t-bad t-sm" x="10" y="16">NOW</text>
+      <rect class="box" x="10" y="30" width="86" height="30" rx="4"/><text x="53" y="49" text-anchor="middle">Booking</text>
+      <rect class="box" x="116" y="30" width="86" height="30" rx="4"/><text x="159" y="49" text-anchor="middle">Shop</text>
+      <rect class="box" x="10" y="90" width="86" height="30" rx="4"/><text x="53" y="109" text-anchor="middle">Email tool</text>
+      <rect class="box" x="116" y="90" width="86" height="30" rx="4"/><text x="159" y="109" text-anchor="middle">Files</text>
+      <text class="t-bad" x="106" y="78" text-anchor="middle">?</text>
+      <text class="t-sm t-faint" x="106" y="150" text-anchor="middle">Nothing connected.</text>
+      <text class="t-sm t-faint" x="106" y="165" text-anchor="middle">Three customer lists,</text>
+      <text class="t-sm t-faint" x="106" y="180" text-anchor="middle">none of them agree.</text>
+      <line class="ln-faint" x1="236" y1="10" x2="236" y2="210"/>
+      <text class="t-b t-ac t-sm" x="262" y="16">WITH US</text>
+      <rect class="box" x="262" y="30" width="86" height="30" rx="4"/><text x="305" y="49" text-anchor="middle">Booking</text>
+      <rect class="box" x="424" y="30" width="86" height="30" rx="4"/><text x="467" y="49" text-anchor="middle">Shop</text>
+      <rect class="box" x="262" y="170" width="86" height="30" rx="4"/><text x="305" y="189" text-anchor="middle">Email tool</text>
+      <rect class="box" x="424" y="170" width="86" height="30" rx="4"/><text x="467" y="189" text-anchor="middle">Files</text>
+      <rect class="box-ac" x="340" y="92" width="92" height="46" rx="23"/>
+      <text class="t-ondeep t-b" x="386" y="112" text-anchor="middle">One record</text><text class="t-ondeep t-sm" x="386" y="126" text-anchor="middle">per customer</text>
+      <g class="ln-ac">
+        <path d="M424,45 L400,90" marker-end="url(#ar3)"/>
+        <path d="M372,140 L340,168" marker-end="url(#ar3)"/>
+        <path d="M400,140 L432,168" marker-end="url(#ar3)"/>
+        <path d="M348,45 L372,90" marker-end="url(#ar3)"/>
+      </g>
+      <text class="t-sm t-ac" x="430" y="72" text-anchor="start">purchase → record</text>
+      <text class="t-sm t-ac" x="262" y="72" text-anchor="start">booking → record</text>
+      <text class="t-sm t-ac" x="262" y="158" text-anchor="start">done → aftercare</text>
+      <text class="t-sm t-ac" x="510" y="158" text-anchor="end">docs → filed</text>
+    </svg>
+    <figcaption>Same four tools. The difference is the record in the middle and the labelled arrows — each one is a job a person currently does by hand.</figcaption>
+  </figure></div>
+    <div class="place"><div class="ptxt">
+        <p class="flab"><span>04</span>Words and know-how</p>
+        <h3>Written once, in your voice, and never lost when someone moves on.</h3>
+        <p class="fitems">Write it once, use it everywhere &middot; Keep the know-how when staff change</p>
+      </div><figure class="pfig">
+    <svg viewBox="0 0 520 190" role="img" aria-label="One set of facts becomes a newsletter, social posts and a web page, each passing through your approval">
+      <defs><marker id="ar8" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/></marker></defs>
+      <rect class="box" x="10" y="60" width="120" height="70" rx="6"/>
+      <text class="t-b" x="70" y="82" text-anchor="middle">The facts</text>
+      <text class="t-sm t-faint" x="70" y="98" text-anchor="middle">new treatment</text><text class="t-sm t-faint" x="70" y="111" text-anchor="middle">course dates</text><text class="t-sm t-faint" x="70" y="124" text-anchor="middle">this month's offer</text>
+      <g class="ln-ac"><path d="M130,95 L172,95" marker-end="url(#ar8)"/></g>
+      <rect class="box-ac" x="176" y="70" width="96" height="50" rx="25"/>
+      <text class="t-ondeep t-b" x="224" y="91" text-anchor="middle">Drafted in</text><text class="t-ondeep t-b" x="224" y="106" text-anchor="middle">your voice</text>
+      <g class="ln-ac">
+        <path d="M272,95 C300,95 300,30 330,30" marker-end="url(#ar8)"/>
+        <path d="M272,95 L330,95" marker-end="url(#ar8)"/>
+        <path d="M272,95 C300,95 300,160 330,160" marker-end="url(#ar8)"/>
+      </g>
+      <rect class="box-soft" x="334" y="14" width="106" height="32" rx="4"/><text x="387" y="34" text-anchor="middle">Newsletter</text>
+      <rect class="box-soft" x="334" y="79" width="106" height="32" rx="4"/><text x="387" y="99" text-anchor="middle">3 social posts</text>
+      <rect class="box-soft" x="334" y="144" width="106" height="32" rx="4"/><text x="387" y="164" text-anchor="middle">Web page</text>
+      <g class="ln"><path d="M440,30 L468,30"/><path d="M440,95 L468,95"/><path d="M440,160 L468,160"/></g>
+      <rect class="box" x="470" y="14" width="40" height="162" rx="4"/>
+      <text transform="rotate(-90 490 95)" x="490" y="95" text-anchor="middle" class="t-b t-sm">You approve</text>
+    </svg>
+    <figcaption>The facts go in once. Three formats come out, and every one of them passes a person before it's published.</figcaption>
+  </figure></div>
   </div>
   <p class="trust">Each improvement is a fixed fee, agreed in writing before it is built. We are based in North Wales and work across the UK, remotely and on site.</p>
 </div></section>
@@ -1087,7 +1214,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
       else { mark(c,k*90); k++; }
     });
   });
-  [['.cols3 > div',3,110],['.four > div',2,120],['.vtl > li',1,0],['.storygrid > *',2,140],['.sidebyside > *',2,140]].forEach(function(g){
+  [['.cols3 > div',3,110],['.place > *',2,140],['.vtl > li',1,0],['.storygrid > *',2,140],['.sidebyside > *',2,140]].forEach(function(g){
     d.querySelectorAll(g[0]).forEach(function(el){ var i=[].indexOf.call(el.parentNode.children,el); mark(el,(i%g[1])*g[2]); });
   });
   d.querySelectorAll('.foot-note, .trust').forEach(function(el){ mark(el,0); });

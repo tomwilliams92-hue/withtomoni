@@ -564,15 +564,19 @@ section.ls .head p{font-size:18px;color:var(--mid);max-width:56ch;margin-top:14p
 @media (max-width:900px){.vtl li{grid-template-columns:1fr;gap:0}.vtl p{padding-top:12px}}
 @media (max-width:640px){.vtl li{padding-left:80px;padding-bottom:40px}.vtl .n{width:56px;height:56px;font-size:22px;box-shadow:0 0 0 5px var(--accent-tint)}.vtl li::before{left:27px;top:62px;width:2px}.vtl h3{padding-top:8px}}
 /* why: nine facts as ruled cells */
-.four{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.four > div{padding:44px 44px 46px 0;margin-right:44px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-.four > div:nth-child(2n){border-right:0;margin-right:0;padding-right:0}
-.four .flab{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.four .flab span{color:var(--accent);margin-right:14px}
-.four h3{font-family:var(--type);font-weight:700;font-size:clamp(23px,2.6vw,33px);line-height:1.18;letter-spacing:-.015em;margin-top:16px;max-width:24ch}
-.four .fitems{font-size:14px;color:var(--faint);margin-top:18px}
+.places{border-top:1px solid var(--line)}
+.place{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:64px;align-items:center;padding:72px 0;border-bottom:1px solid var(--line)}
+.place:nth-child(even) .ptxt{order:2}
+.place:nth-child(even) .pfig{order:1}
+.place .flab{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.place .flab span{color:var(--accent);margin-right:14px}
+.place h3{font-family:var(--type);font-weight:700;font-size:clamp(27px,3.2vw,42px);line-height:1.14;letter-spacing:-.018em;margin-top:18px;max-width:22ch}
+.place .fitems{font-size:14px;color:var(--faint);margin-top:20px}
+.pfig{margin:0;background:var(--soft);border:1px solid var(--line);padding:26px 26px 18px}
+.pfig svg{display:block;width:100%;height:auto;color:var(--ink)}
+.pfig figcaption{font-family:var(--type);font-size:13px;color:var(--faint);margin-top:10px;line-height:1.4}
 .trust{font-size:15px;color:var(--mid);margin-top:26px}
-@media (max-width:900px){.four{grid-template-columns:1fr}.four > div{border-right:0;margin-right:0;padding-right:0}}
+@media (max-width:900px){.place{grid-template-columns:1fr;gap:24px;padding:44px 0}.place:nth-child(even) .ptxt{order:0}.place:nth-child(even) .pfig{order:0}}
 /* two columns of text */
 .sidebyside{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .sidebyside p{max-width:52ch}
@@ -653,10 +657,12 @@ section.ls.black p{color:#D8D8D8}
   .cstat b{font-size:19px}.cstat span{font-size:12px}.cstat > div{padding:9px 12px;gap:10px}
   .vtl h3{font-size:22px;padding-top:6px}.vtl .when{font-size:13px;margin-top:4px}.vtl p{font-size:15px;line-height:1.55;padding-top:10px}.vtl .out{font-size:13px;margin-top:10px}
   .vtl li{padding-left:66px;padding-bottom:30px}.vtl .n{width:48px;height:48px;font-size:19px;box-shadow:0 0 0 4px var(--accent-tint)}.vtl li::before{left:23px;top:54px;width:2px}
-  .four > div{padding:22px 0 24px}
-  .four .flab{font-size:11px}
-  .four h3{font-size:19px;line-height:1.25;margin-top:8px;max-width:none}
-  .four .fitems{font-size:12px;margin-top:10px}
+  .place{padding:30px 0;gap:16px}
+  .place .flab{font-size:11px}
+  .place h3{font-size:21px;line-height:1.22;margin-top:8px;max-width:none}
+  .place .fitems{font-size:12px;margin-top:10px}
+  .pfig{padding:16px 16px 12px}
+  .pfig figcaption{font-size:12px}
   .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:15px;line-height:1.55}
   .portrait{max-width:280px}
