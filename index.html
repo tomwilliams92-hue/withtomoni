@@ -681,10 +681,10 @@ section.ls .head p{font-size:18px;color:var(--mid);max-width:56ch;margin-top:14p
 /* story */
 .storygrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start}
 .storygrid p{font-size:19px;color:var(--ink);max-width:68ch;line-height:1.65}
-.portrait{margin:0 18px 0 0;max-width:440px;justify-self:end;width:100%;position:relative}
-.portrait::before{content:"";position:absolute;top:22px;left:22px;right:-18px;bottom:4px;background:var(--accent-tint);z-index:0}
+.portrait{margin:0 18px 0 0;max-width:440px;justify-self:end;width:100%;position:relative;padding-bottom:16px}
+.portrait::before{content:"";position:absolute;top:22px;left:22px;right:-18px;bottom:0;background:var(--accent-tint);z-index:0}
 .portrait img{display:block;width:100%;height:auto;filter:grayscale(1);position:relative;z-index:1;border:1px solid var(--line)}
-.portrait figcaption{font-family:var(--type);font-size:14px;color:var(--faint);margin-top:26px;position:relative;z-index:1}
+.portrait figcaption{font-family:var(--type);font-size:14px;color:var(--mid);margin-top:16px;padding-left:34px;position:relative;z-index:1}
 @media (max-width:900px){.portrait{justify-self:start;max-width:360px}}
 .beats{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:s}
 .beats li{padding:22px 0 22px 72px;position:relative;counter-increment:s;border-bottom:1px solid var(--line)}
@@ -763,7 +763,7 @@ section.ls.black p{color:#D8D8D8}
   .pfig figcaption{font-size:13px}
   .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:16px;line-height:1.55}
-  .portrait{max-width:none;margin-right:14px}.portrait::before{top:14px;left:14px;right:-14px;bottom:10px}.portrait figcaption{margin-top:22px}
+  .portrait{max-width:none;margin-right:14px;padding-bottom:14px}.portrait::before{top:14px;left:14px;right:-14px;bottom:0}.portrait figcaption{margin-top:14px;padding-left:26px}
   .cdetails a{font-size:17px}.cdetails{gap:8px;margin-top:22px;padding-top:18px}
   .lfoot{padding:30px 0 40px}.lfoot .fb svg{width:120px}.lfoot .small{font-size:13px}.fcontact a{font-size:13px}
   /* working examples: figures always visible, the writing behind a toggle */
