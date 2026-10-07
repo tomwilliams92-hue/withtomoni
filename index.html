@@ -805,8 +805,17 @@ section.ls.black p{color:#D8D8D8}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
 .calc .cfield.wide{grid-column:1/-1}
 .calc label{font-family:var(--type);font-weight:700;font-size:14px}
-.calc input,.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
-.calc input:focus,.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
+.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc .lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.calc output{font-family:var(--type);font-weight:900;font-size:17px;color:var(--accent);white-space:nowrap}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:2px 0 0;background:transparent;cursor:pointer}
+.calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(to right,var(--accent) var(--fill,50%),var(--line) var(--fill,50%))}
+.calc input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
+.calc input[type=range]::-moz-range-progress{height:6px;border-radius:3px;background:var(--accent)}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:-9px}
+.calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
 .work{font-family:var(--type);font-size:14px;color:var(--mid);line-height:1.65;margin:18px 0 0;border-left:3px solid var(--accent);padding-left:14px}
 .enqnote,.calcmeaning{margin-top:16px;font-size:15px;color:var(--mid);max-width:70ch;line-height:1.6}
@@ -912,10 +921,10 @@ html.mo [data-rv="mask"].in .mi{transform:none}
           <option value="health">Health and wellbeing</option>
           <option value="prof">Professional services</option>
         </select></div>
-      <div class="cfield"><label for="c-people">People who handle the admin</label><input type="number" id="c-people" value="3" min="1" max="500" inputmode="numeric"></div>
-      <div class="cfield"><label for="c-hours">Admin hours each does in a week</label><input type="number" id="c-hours" value="7" min="1" max="60" inputmode="numeric"></div>
-      <div class="cfield"><label for="c-enq">New enquiries in a typical month</label><input type="number" id="c-enq" value="30" min="0" max="10000" inputmode="numeric"></div>
-      <div class="cfield"><label for="c-rate">What an hour of that time costs (&pound;)</label><input type="number" id="c-rate" value="16" min="5" max="200" inputmode="numeric"><span class="hint">Pay plus the costs that sit on it. Change it if you know your figure.</span></div>
+      <div class="cfield"><div class="lrow"><label for="c-people">People who handle the admin</label><output id="o-people" for="c-people">3</output></div><input type="range" id="c-people" value="3" min="1" max="40" step="1"></div>
+      <div class="cfield"><div class="lrow"><label for="c-hours">Admin hours each does in a week</label><output id="o-hours" for="c-hours">7 hrs</output></div><input type="range" id="c-hours" value="7" min="1" max="20" step="1"></div>
+      <div class="cfield"><div class="lrow"><label for="c-enq">New enquiries in a typical month</label><output id="o-enq" for="c-enq">30</output></div><input type="range" id="c-enq" value="30" min="0" max="200" step="5"></div>
+      <div class="cfield"><div class="lrow"><label for="c-rate">What an hour of that time costs</label><output id="o-rate" for="c-rate">&pound;16</output></div><input type="range" id="c-rate" value="16" min="8" max="60" step="1"><span class="hint">Pay plus the costs that sit on it. Slide it to your figure.</span></div>
     </form>
     <div class="cstat">
       <div><b id="r-hours">&mdash;</b><span>hours a month your team spends on admin</span></div>
@@ -1185,8 +1194,15 @@ html.mo [data-rv="mask"].in .mi{transform:none}
   if(!$("c-sector"))return;
   function num(id){var v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0}
   function fmt(n){return n.toLocaleString("en-GB")}
+  function paint(id){var el=$(id),pct=100*(el.value-el.min)/(el.max-el.min);el.style.setProperty("--fill",pct+"%")}
+  function readouts(p,h,e,r){
+    $("o-people").textContent=p; $("o-hours").textContent=h+(h===1?" hr":" hrs");
+    $("o-enq").textContent=e; $("o-rate").textContent="£"+r;
+    ["c-people","c-hours","c-enq","c-rate"].forEach(paint);
+  }
   function calc(){
     var sec=$("c-sector").value, p=num("c-people"), h=num("c-hours"), e=num("c-enq"), r=num("c-rate");
+    readouts(p,h,Math.round(num("c-enq")),r);
     var ok=p>0&&h>0&&r>0;
     var share=SHARE[sec]||.4, hm=p*h*4.33, au=hm*share, pm=Math.round(au*r/10)*10, yr=pm*12;
     $("r-hours").textContent=ok?Math.round(hm)+" hrs":"\u2014";

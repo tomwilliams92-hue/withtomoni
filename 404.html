@@ -708,8 +708,17 @@ section.ls.black p{color:#D8D8D8}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
 .calc .cfield.wide{grid-column:1/-1}
 .calc label{font-family:var(--type);font-weight:700;font-size:14px}
-.calc input,.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
-.calc input:focus,.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
+.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc .lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.calc output{font-family:var(--type);font-weight:900;font-size:17px;color:var(--accent);white-space:nowrap}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:2px 0 0;background:transparent;cursor:pointer}
+.calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(to right,var(--accent) var(--fill,50%),var(--line) var(--fill,50%))}
+.calc input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
+.calc input[type=range]::-moz-range-progress{height:6px;border-radius:3px;background:var(--accent)}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:-9px}
+.calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
 .work{font-family:var(--type);font-size:14px;color:var(--mid);line-height:1.65;margin:18px 0 0;border-left:3px solid var(--accent);padding-left:14px}
 .enqnote,.calcmeaning{margin-top:16px;font-size:15px;color:var(--mid);max-width:70ch;line-height:1.6}
