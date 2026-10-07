@@ -91,7 +91,7 @@
    ],
    "potentialAction": {
     "@type": "ReserveAction",
-    "name": "Book a conversation",
+    "name": "Book a free scoping call",
     "target": "https://calendar.app.google/3De1SnhdepYQe9cm9"
    }
   },
@@ -796,18 +796,19 @@ section.ls.black p{color:#D8D8D8}
 .rstats .rs-what{display:block;font-size:15px;color:var(--ink);line-height:1.45;margin-top:12px}
 .rstats .rs-src{display:inline-block;font-family:var(--type);font-size:12.5px;color:var(--faint);margin-top:10px;text-decoration:none;border-bottom:1px solid transparent}
 .rstats a.rs-src:hover{color:var(--accent);border-bottom-color:var(--accent)}
-/* the calculator, on the page under the research (Tom, 07.10.2026; two-panel Aucta shape 07.10 evening) */
+/* the calculator, on the page under the research (Tom, 07.10.2026; Aucta shape: one control per line, sector buttons, bolder assumptions) */
 .calcwrap{margin-top:56px}
 .calchead{font-family:var(--type);font-weight:900;font-size:clamp(24px,3vw,34px);letter-spacing:-.015em;line-height:1.12;margin-top:14px}
 .calchead .dot{color:var(--accent)}
 .calclead{font-size:16px;color:var(--mid);margin-top:10px;max-width:70ch;line-height:1.6}
-.calcgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
-.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;padding:28px;background:var(--paper);border:1px solid var(--line)}
+.calcgrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+.calc{display:grid;grid-template-columns:1fr;gap:26px;padding:28px;background:var(--paper);border:1px solid var(--line)}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
-.calc .cfield.wide{grid-column:1/-1}
-.calc label{font-family:var(--type);font-weight:700;font-size:14px}
-.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
-.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc label,.calc .glab{font-family:var(--type);font-weight:700;font-size:14px;letter-spacing:.02em}
+.secgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+.secgrid button{font-family:var(--type);font-size:15px;text-align:left;padding:13px 16px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s}
+.secgrid button:hover{border-color:var(--accent)}
+.secgrid button.sel{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 .calc .lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .calc output{font-family:var(--type);font-weight:900;font-size:17px;color:var(--accent);white-space:nowrap}
 .calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:2px 0 0;background:transparent;cursor:pointer}
@@ -817,7 +818,14 @@ section.ls.black p{color:#D8D8D8}
 .calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:-9px}
 .calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25)}
 .calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.calc .scale{display:flex;justify-content:space-between;font-family:var(--type);font-size:12px;color:var(--faint)}
+.calc .scale span:nth-child(2){text-align:center}.calc .scale span:last-child{text-align:right}
 .calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
+.leaks{padding-top:20px;border-top:1px solid var(--line)}
+.leaks .llab{font-family:var(--type);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.leaks ul{list-style:none;margin:10px 0 0;padding:0}
+.leaks li{position:relative;padding:5px 0 5px 18px;font-size:14px;color:var(--mid);line-height:1.45}
+.leaks li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:3px;background:var(--accent)}
 /* the results card */
 .cres{background:var(--paper);border:1px solid var(--line);padding:30px 32px}
 .cres .rlab{display:block;font-family:var(--type);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
@@ -835,7 +843,7 @@ section.ls.black p{color:#D8D8D8}
 @media (max-width:980px){.calcgrid{grid-template-columns:1fr;gap:24px}}
 @media (max-width:980px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{padding:24px 22px}.rstats > div:nth-child(odd){border-left:0;padding-left:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
-@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{grid-template-columns:1fr;padding:18px;gap:16px}.calchead{font-size:22px}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
+@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{padding:18px;gap:20px}.calchead{font-size:22px}.secgrid{grid-template-columns:1fr}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
 
 
 /* motion (see MOTION_JS) */
@@ -873,8 +881,8 @@ html.mo [data-rv="mask"].in .mi{transform:none}
   <a class="bm" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4.434 -4.434 725.868 747.868" role="img" aria-label="Tomoni AI">
   <g transform="translate(-158.0000 733.0000) scale(1 -1)" fill="currentColor"><path d="M158.0 256.0Q158.0 328.0 171.5 410.5Q185.0 493.0 211.0 605.0Q215.0 627.0 215.0 635.0Q215.0 677.0 185.0 713.0Q180.0 720.0 180.0 724.0Q180.0 733.0 192.0 733.0Q198.0 733.0 201.0 731.0Q227.0 717.0 253.5 679.5Q280.0 642.0 280.0 605.0Q280.0 586.0 273.0 571.0Q211.0 435.0 211.0 299.0Q211.0 257.0 217.0 224.0Q223.0 191.0 231.0 172.0Q239.0 153.0 246.0 153.0Q251.0 153.0 254.0 168.0Q263.0 222.0 277.5 264.5Q292.0 307.0 313.0 353.0Q323.0 374.0 331.0 374.0Q339.0 374.0 339.0 359.0Q339.0 349.0 335.0 338.0Q316.0 281.0 300.5 220.5Q285.0 160.0 285.0 98.0Q285.0 69.0 289.0 48.0Q291.0 34.0 291.0 30.0Q291.0 12.0 282.5 3.0Q274.0 -6.0 261.0 -6.0Q249.0 -6.0 237.0 0.5Q225.0 7.0 219.0 16.0Q158.0 114.0 158.0 256.0ZM589.0 441.0Q582.0 441.0 582.0 449.0Q582.0 457.0 592.0 470.0Q605.0 485.0 632.5 507.0Q660.0 529.0 677.0 541.0Q682.0 544.0 682.0 547.0Q682.0 553.0 664.5 556.5Q647.0 560.0 611.0 564.0L568.0 570.0Q538.0 576.0 511.5 591.5Q485.0 607.0 474.0 621.0Q470.0 626.0 470.0 630.0Q470.0 635.0 474.5 637.5Q479.0 640.0 484.0 640.0Q492.0 640.0 505.0 632.0Q508.0 631.0 521.0 625.5Q534.0 620.0 551.0 617.0Q582.0 612.0 620.0 612.0Q666.0 612.0 763.0 622.0Q791.0 625.0 808.5 613.0Q826.0 601.0 826.0 590.0Q826.0 574.0 808.5 563.0Q791.0 552.0 748.0 535.0Q699.0 516.0 666.5 498.5Q634.0 481.0 608.0 453.0Q598.0 441.0 589.0 441.0ZM457.0 213.0Q457.0 240.0 464.0 271.0Q467.0 284.0 479.5 306.5Q492.0 329.0 500.0 328.0Q510.0 328.0 510.0 320.0Q510.0 315.0 504.0 301.0Q498.0 287.0 495.0 279.0Q487.0 258.0 487.0 237.0Q487.0 204.0 507.0 174.5Q527.0 145.0 569.5 127.0Q612.0 109.0 676.0 109.0Q737.0 109.0 801.0 124.0Q811.0 126.0 815.0 126.0Q839.0 126.0 857.0 112.0Q875.0 98.0 875.0 82.0Q875.0 66.0 854.0 59.0Q811.0 45.0 726.0 42.0Q577.0 37.0 517.0 86.5Q457.0 136.0 457.0 213.0Z"/></g>
 </svg></a>
-  <div class="lnav"><a href="#what">What we do</a><a href="#work">Selected work</a><a href="#how">How we work</a><a href="#built">What we build</a><a href="#story">Our story</a><a href="#talk">Contact</a><a class="mcta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a conversation</a></div>
-  <a class="navcta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a conversation</a>
+  <div class="lnav"><a href="#what">What we do</a><a href="#work">Selected work</a><a href="#how">How we work</a><a href="#built">What we build</a><a href="#story">Our story</a><a href="#talk">Contact</a><a class="mcta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call</a></div>
+  <a class="navcta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call</a>
   <button class="tg" id="tg" type="button" aria-label="Switch between light and dark">Dark</button>
   <button class="menubtn" id="menubtn" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div><div class="progress" id="progress" aria-hidden="true"></div></div>
@@ -884,7 +892,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
   <div class="vhero__in lwrap">
   <h1><span class="h1in">We help businesses think bigger and run <em class="lite">lighter</em>, together.</span></h1><script>(function(){var el=document.querySelector('.rw'),h1=el&&el.closest('h1');if(!h1)return;var k=el.textContent,m=0;["AI", "automation", "less admin", "smarter systems", "efficiency"].forEach(function(w){el.textContent=w;m=Math.max(m,h1.offsetHeight)});el.textContent=k;h1.style.minHeight=m+'px'})();</script>
   <p class="lead">Tomoni is an independent AI consultancy. We help businesses work out where AI genuinely makes them more efficient, and build it in where it does.</p>
-  <div class="ctas"><a class="cta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a conversation</a><a class="cta text" href="#how">See how we work <span>&rarr;</span></a></div>
+  <div class="ctas"><a class="cta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call</a><a class="cta text" href="#how">See how we work <span>&rarr;</span></a></div>
   </div>
 </header>
 
@@ -924,23 +932,24 @@ html.mo [data-rv="mask"].in .mi{transform:none}
     <p class="calclead">Slide the numbers to match your business. The working is shown, and the sums happen in your browser and stay there; nothing you move is sent to us, or to anyone else.</p>
     <div class="calcgrid">
       <form class="calc" autocomplete="off">
-        <div class="cfield wide"><label for="c-sector">The kind of business</label>
-          <select id="c-sector">
-            <option value="other" selected>Something else, or several things</option>
-            <option value="edu">Education and training</option>
-            <option value="leisure">Sport, leisure and wellbeing</option>
-            <option value="trade">Trades and construction</option>
-            <option value="prop">Property and lettings</option>
-            <option value="retail">Retail and e-commerce</option>
-            <option value="health">Health and care</option>
-            <option value="manu">Manufacturing and engineering</option>
-            <option value="prof">Professional services</option>
-          </select></div>
-        <div class="cfield"><div class="lrow"><label for="c-people">People who handle the admin</label><output id="o-people" for="c-people">3</output></div><input type="range" id="c-people" value="3" min="1" max="40" step="1"></div>
-        <div class="cfield"><div class="lrow"><label for="c-hours">Admin hours each does in a week</label><output id="o-hours" for="c-hours">7 hrs</output></div><input type="range" id="c-hours" value="7" min="1" max="20" step="1"></div>
-        <div class="cfield"><div class="lrow"><label for="c-enq">New enquiries in a typical month</label><output id="o-enq" for="c-enq">30</output></div><input type="range" id="c-enq" value="30" min="0" max="200" step="5"></div>
-        <div class="cfield"><div class="lrow"><label for="c-rate">What an hour of that time costs</label><output id="o-rate" for="c-rate">&pound;16</output></div><input type="range" id="c-rate" value="16" min="8" max="60" step="1"><span class="hint">Pay plus the costs that sit on it.</span></div>
-        <div class="cfield"><div class="lrow"><label for="c-value">What a new customer is worth</label><output id="o-value" for="c-value">&pound;300</output></div><input type="range" id="c-value" value="300" min="50" max="2000" step="25"><span class="hint">The margin on a typical new customer, not the invoice.</span></div>
+        <div class="cfield"><span class="glab" id="sec-lab">1. The kind of business</span>
+          <div class="secgrid" role="radiogroup" aria-labelledby="sec-lab">
+            <button type="button" data-sec="edu">Education and training</button>
+            <button type="button" data-sec="leisure">Sport, leisure and wellbeing</button>
+            <button type="button" data-sec="trade">Trades and construction</button>
+            <button type="button" data-sec="prop">Property and lettings</button>
+            <button type="button" data-sec="retail">Retail and e-commerce</button>
+            <button type="button" data-sec="health">Health and care</button>
+            <button type="button" data-sec="manu">Manufacturing and engineering</button>
+            <button type="button" data-sec="prof">Professional services</button>
+            <button type="button" data-sec="other" class="sel">Something else, or several things</button>
+          </div></div>
+        <div class="cfield"><div class="lrow"><label for="c-people">2. People who handle the admin</label><output id="o-people" for="c-people">6 people</output></div><input type="range" id="c-people" value="6" min="2" max="40" step="1"><div class="scale"><span>2 staff</span><span>20 staff</span><span>40 staff</span></div></div>
+        <div class="cfield"><div class="lrow"><label for="c-hours">3. Admin hours each does in a week</label><output id="o-hours" for="c-hours">7 hrs / week</output></div><input type="range" id="c-hours" value="7" min="3" max="20" step="1"><div class="scale"><span>3 hrs (light)</span><span>10 hrs (heavy)</span><span>20 hrs (swamped)</span></div></div>
+        <div class="cfield"><div class="lrow"><label for="c-enq">4. New enquiries in a typical month</label><output id="o-enq" for="c-enq">35 enquiries</output></div><input type="range" id="c-enq" value="35" min="10" max="200" step="5"><div class="scale"><span>10 / mo</span><span>100 / mo</span><span>200 / mo</span></div></div>
+        <div class="cfield"><div class="lrow"><label for="c-rate">5. What an hour of that time costs</label><output id="o-rate" for="c-rate">&pound;22</output></div><input type="range" id="c-rate" value="22" min="12" max="60" step="1"><div class="scale"><span>&pound;12</span><span>&pound;35</span><span>&pound;60</span></div><span class="hint">Fully loaded: pay plus National Insurance, pension and overheads.</span></div>
+        <div class="cfield"><div class="lrow"><label for="c-value">6. What a new customer is worth</label><output id="o-value" for="c-value">&pound;400</output></div><input type="range" id="c-value" value="400" min="50" max="2000" step="25"><div class="scale"><span>&pound;50</span><span>&pound;1,000</span><span>&pound;2,000</span></div><span class="hint">The margin on a typical new customer, not the invoice.</span></div>
+        <div class="leaks"><span class="llab" id="leak-lab">Where it usually leaks</span><ul id="leak-list"></ul></div>
       </form>
       <div class="cres">
         <span class="rlab">Recoverable each month</span>
@@ -955,7 +964,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
       </div>
     </div>
     <p class="enqnote">The speed of the first reply is where the enquiry money sits: a study of 3.5 million enquiries found conversion 391% higher when the call back came within a minute rather than later.</p>
-    <p class="calcmeaning">It is an estimate built from six numbers and two assumptions, so treat it as a pointer rather than a promise. An assessment counts the real thing: ten working days inside the business, every recurring task measured, a figure against every finding, and the list of what to leave alone. <a href="#talk">Start with a conversation &rarr;</a></p>
+    <p class="calcmeaning">It is an estimate built from six numbers and sector assumptions, each one shown in the working, so treat it as a pointer rather than a promise. An assessment counts the real thing: ten working days inside the business, every recurring task measured, a figure against every finding, and the list of what to leave alone. <a href="#talk">Book a free scoping call &rarr;</a></p>
   </div>
 </div>
 </div></section>
@@ -1141,7 +1150,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 <section id="talk" class="ls black"><div class="lwrap">
   <div class="contactgrid">
     <div class="head" style="margin-bottom:0"><span class="eyebrow">Contact</span><h2>Start with a conversation<span class="dot">.</span></h2><p>Twenty minutes with Tom Williams, at no charge. Tell us how your business runs and where the days go, and we will tell you where the opportunities are likely to be, and whether an assessment is worth your money. If it is not, that is what you will hear.</p>
-    <a class="cta booknow" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a conversation <span>&rarr;</span></a>
+    <a class="cta booknow" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call <span>&rarr;</span></a>
     <p class="orcall">Or call or email, whichever suits you.</p>
     <div class="cdetails"><a href="tel:+447971512158">07971 512158</a><a href="mailto:tom@withtomoni.com">tom@withtomoni.com</a></div></div>
   </div>
@@ -1208,36 +1217,56 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 </script>
 <script>
 (function(){
-  var SHARE={trade:.45,edu:.40,leisure:.40,prop:.45,retail:.45,health:.35,manu:.40,prof:.35,other:.40};
+  var SHARE={trade:.62,retail:.60,prop:.60,manu:.58,edu:.55,leisure:.55,other:.55,health:.50,prof:.50};
   var NAME={trade:"trades and construction",edu:"education and training",leisure:"sport, leisure and wellbeing",
             prop:"property and lettings",retail:"retail and e-commerce",health:"health and care",
             manu:"manufacturing and engineering",prof:"professional services",other:"a business like yours"};
+  var LEAKS={
+    edu:["Learner records updated by hand in three places","Course enquiries answered the next working day","Evidence for audits assembled from scratch each time"],
+    leisure:["Memberships, bookings and waivers typed in twice","Class enquiries answered after the moment has passed","No-shows and lapsed members never followed up"],
+    trade:["Quotes written up in the evening, days after the visit","Missed calls while on the tools that never ring back","Job sheets and invoices re-typed from paper"],
+    prop:["Viewing requests answered hours later","Tenant queries chased across inbox, phone and notes","Compliance certificates hunted down at renewal"],
+    retail:["Stock counts and listings updated by hand","The same product question answered dozens of times","Lapsed customers never invited back"],
+    health:["Intake forms filled in on paper at the first appointment","Weekend enquiries that have booked elsewhere by Monday","Notes written twice, once by hand and once in the system"],
+    manu:["Order status chased by phone between office and floor","Quotes built from spreadsheets that disagree","Delivery paperwork re-keyed into the system"],
+    prof:["Letters, reports and file notes written up after hours","New client onboarding repeated by hand each time","Hours spent on work nobody bills"],
+    other:["The same information typed into more than one system","Enquiries answered in hours when minutes win the work","Month end assembled by hand from scattered records"]};
   function $(id){return document.getElementById(id)}
-  if(!$("c-sector"))return;
+  var grid=document.querySelector(".secgrid");
+  if(!grid)return;
+  var sec="other";
   function num(id){var v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0}
   function fmt(n){return n.toLocaleString("en-GB")}
   function paint(id){var el=$(id),pct=100*(el.value-el.min)/(el.max-el.min);el.style.setProperty("--fill",pct+"%")}
   function calc(){
-    var sec=$("c-sector").value, p=num("c-people"), h=num("c-hours"), e=num("c-enq"), r=num("c-rate"), v=num("c-value");
-    $("o-people").textContent=p; $("o-hours").textContent=h+(h===1?" hr":" hrs");
-    $("o-enq").textContent=Math.round(e); $("o-rate").textContent="£"+fmt(r); $("o-value").textContent="£"+fmt(v);
+    var p=num("c-people"), h=num("c-hours"), e=num("c-enq"), r=num("c-rate"), v=num("c-value");
+    $("o-people").textContent=p+" people"; $("o-hours").textContent=h+" hrs / week";
+    $("o-enq").textContent=Math.round(e)+" enquiries"; $("o-rate").textContent="£"+fmt(r); $("o-value").textContent="£"+fmt(v);
     ["c-people","c-hours","c-enq","c-rate","c-value"].forEach(paint);
-    var share=SHARE[sec]||.4, hm=p*h*4.33, au=hm*share;
+    $("leak-lab").textContent="Where it usually leaks in "+NAME[sec];
+    $("leak-list").innerHTML=LEAKS[sec].map(function(t){return "<li>"+t+"</li>"}).join("");
+    var share=SHARE[sec]||.55, hm=p*h*4.33, au=hm*share;
     var adm=Math.round(au*r/10)*10;
-    var rec=e*0.05, enq=Math.round(rec*v/10)*10;
+    var rec=e*0.16, enq=Math.round(rec*v/10)*10;
     var pm=adm+enq, yr=pm*12;
     $("r-month").innerHTML="£"+fmt(pm)+"<span>/ month</span>";
     $("r-split").textContent="£"+fmt(adm)+" in admin hours, plus £"+fmt(enq)+" of margin on enquiries that currently go cold.";
     $("r-hours").textContent=Math.round(hm)+" hrs";
     $("r-auto").textContent=Math.round(au)+" hrs";
     $("r-year").textContent="£"+fmt(yr);
-    $("c-working").textContent="The working: "+p+(p===1?" person":" people")+" × "+h
+    $("c-working").textContent="The working: "+p+" people × "+h
       +" hours a week × 4.33 weeks is "+Math.round(hm)+" hours a month on admin. In "+NAME[sec]
-      +" we assume "+Math.round(share*100)+"% of it could be automated: "+Math.round(au)+" hours, £"+fmt(adm)
-      +" at £"+fmt(r)+" an hour. On enquiries we assume slow replies lose you one in ten and that faster handling wins half of those back: "
-      +(Math.round(rec*10)/10)+" a month, £"+fmt(enq)+" at £"+fmt(v)+" each. Both figures are rounded to the nearest ten pounds, and both assumptions are deliberately cautious. The assessment replaces them with a count.";
+      +" we assume "+Math.round(share*100)+"% of routine admin can be automated, in line with sector research and our own builds: "+Math.round(au)+" hours, £"+fmt(adm)
+      +" at £"+fmt(r)+" an hour fully loaded. On enquiries we assume slow or missed replies lose one in five, and that instant handling wins back four of every five lost: "
+      +(Math.round(rec*10)/10)+" a month, £"+fmt(enq)+" at £"+fmt(v)+" each. Figures are rounded to the nearest ten pounds. The assessment replaces every assumption with a count.";
   }
-  ["c-sector","c-people","c-hours","c-enq","c-rate","c-value"].forEach(function(id){
+  grid.querySelectorAll("button").forEach(function(b){
+    b.addEventListener("click",function(){
+      grid.querySelectorAll("button").forEach(function(x){x.classList.remove("sel")});
+      b.classList.add("sel"); sec=b.dataset.sec; calc();
+    });
+  });
+  ["c-people","c-hours","c-enq","c-rate","c-value"].forEach(function(id){
     $(id).addEventListener("input",calc); $(id).addEventListener("change",calc);
   });
   calc();

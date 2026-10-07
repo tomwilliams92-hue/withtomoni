@@ -699,18 +699,19 @@ section.ls.black p{color:#D8D8D8}
 .rstats .rs-what{display:block;font-size:15px;color:var(--ink);line-height:1.45;margin-top:12px}
 .rstats .rs-src{display:inline-block;font-family:var(--type);font-size:12.5px;color:var(--faint);margin-top:10px;text-decoration:none;border-bottom:1px solid transparent}
 .rstats a.rs-src:hover{color:var(--accent);border-bottom-color:var(--accent)}
-/* the calculator, on the page under the research (Tom, 07.10.2026; two-panel Aucta shape 07.10 evening) */
+/* the calculator, on the page under the research (Tom, 07.10.2026; Aucta shape: one control per line, sector buttons, bolder assumptions) */
 .calcwrap{margin-top:56px}
 .calchead{font-family:var(--type);font-weight:900;font-size:clamp(24px,3vw,34px);letter-spacing:-.015em;line-height:1.12;margin-top:14px}
 .calchead .dot{color:var(--accent)}
 .calclead{font-size:16px;color:var(--mid);margin-top:10px;max-width:70ch;line-height:1.6}
-.calcgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
-.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;padding:28px;background:var(--paper);border:1px solid var(--line)}
+.calcgrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+.calc{display:grid;grid-template-columns:1fr;gap:26px;padding:28px;background:var(--paper);border:1px solid var(--line)}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
-.calc .cfield.wide{grid-column:1/-1}
-.calc label{font-family:var(--type);font-weight:700;font-size:14px}
-.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
-.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc label,.calc .glab{font-family:var(--type);font-weight:700;font-size:14px;letter-spacing:.02em}
+.secgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+.secgrid button{font-family:var(--type);font-size:15px;text-align:left;padding:13px 16px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s}
+.secgrid button:hover{border-color:var(--accent)}
+.secgrid button.sel{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 .calc .lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .calc output{font-family:var(--type);font-weight:900;font-size:17px;color:var(--accent);white-space:nowrap}
 .calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:2px 0 0;background:transparent;cursor:pointer}
@@ -720,7 +721,14 @@ section.ls.black p{color:#D8D8D8}
 .calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:-9px}
 .calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.25)}
 .calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.calc .scale{display:flex;justify-content:space-between;font-family:var(--type);font-size:12px;color:var(--faint)}
+.calc .scale span:nth-child(2){text-align:center}.calc .scale span:last-child{text-align:right}
 .calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
+.leaks{padding-top:20px;border-top:1px solid var(--line)}
+.leaks .llab{font-family:var(--type);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.leaks ul{list-style:none;margin:10px 0 0;padding:0}
+.leaks li{position:relative;padding:5px 0 5px 18px;font-size:14px;color:var(--mid);line-height:1.45}
+.leaks li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:3px;background:var(--accent)}
 /* the results card */
 .cres{background:var(--paper);border:1px solid var(--line);padding:30px 32px}
 .cres .rlab{display:block;font-family:var(--type);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
@@ -738,7 +746,7 @@ section.ls.black p{color:#D8D8D8}
 @media (max-width:980px){.calcgrid{grid-template-columns:1fr;gap:24px}}
 @media (max-width:980px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{padding:24px 22px}.rstats > div:nth-child(odd){border-left:0;padding-left:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
-@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{grid-template-columns:1fr;padding:18px;gap:16px}.calchead{font-size:22px}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
+@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{padding:18px;gap:20px}.calchead{font-size:22px}.secgrid{grid-template-columns:1fr}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
 
 
 /* motion (see MOTION_JS) */
