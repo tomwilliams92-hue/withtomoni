@@ -796,11 +796,25 @@ section.ls.black p{color:#D8D8D8}
 .rstats .rs-what{display:block;font-size:15px;color:var(--ink);line-height:1.45;margin-top:12px}
 .rstats .rs-src{display:inline-block;font-family:var(--type);font-size:12.5px;color:var(--faint);margin-top:10px;text-decoration:none;border-bottom:1px solid transparent}
 .rstats a.rs-src:hover{color:var(--accent);border-bottom-color:var(--accent)}
-.rcalc{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:34px}
-.rcalc p{font-size:16px;color:var(--mid);max-width:54ch;margin:0;line-height:1.55}
+/* the calculator, on the page under the research (Tom, 07.10.2026) */
+.calcwrap{max-width:860px;margin-top:56px}
+.calchead{font-family:var(--type);font-weight:900;font-size:clamp(24px,3vw,34px);letter-spacing:-.015em;line-height:1.12;margin-top:14px}
+.calchead .dot{color:var(--accent)}
+.calclead{font-size:16px;color:var(--mid);margin-top:10px;max-width:60ch;line-height:1.6}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin:26px 0 24px;padding:26px;background:var(--paper);border:1px solid var(--line)}
+.calc .cfield{display:flex;flex-direction:column;gap:8px}
+.calc .cfield.wide{grid-column:1/-1}
+.calc label{font-family:var(--type);font-weight:700;font-size:14px}
+.calc input,.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
+.calc input:focus,.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
+.work{font-family:var(--type);font-size:14px;color:var(--mid);line-height:1.65;margin:18px 0 0;border-left:3px solid var(--accent);padding-left:14px}
+.enqnote,.calcmeaning{margin-top:16px;font-size:15px;color:var(--mid);max-width:70ch;line-height:1.6}
+.calcmeaning a{color:var(--accent);font-weight:700;text-decoration:none}
+.calcmeaning a:hover{text-decoration:underline}
 @media (max-width:980px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{padding:24px 22px}.rstats > div:nth-child(odd){border-left:0;padding-left:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
-@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.rcalc{margin-top:24px}.rcalc p{font-size:15px}}
+@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{grid-template-columns:1fr;padding:18px;gap:16px}.calchead{font-size:22px}}
 
 
 /* motion (see MOTION_JS) */
@@ -883,7 +897,36 @@ html.mo [data-rv="mask"].in .mi{transform:none}
     <div><b>391%</b><span class="rs-what">the improvement in conversion when a new enquiry is called back within a minute</span><a class="rs-src" href="https://www.slideshare.net/Velocify/the-ultimate-contact-strategy" target="_blank" rel="noopener">Velocify, a study of 3.5 million enquiries</a></div>
     <div><b>19 days</b><span class="rs-what">lost each year by the average UK small business to manual tasks its software should be doing</span><a class="rs-src" href="https://www.sage.com/en-gb/company/digital-newsroom/2026/09/the-31bn-tech-tangle-smes-lose-19-working-days-a-year-making-digital-tools-work-together/" target="_blank" rel="noopener">Sage, September 2026</a></div>
   </div>
-  <div class="rcalc"><p>Put your own numbers against that last one. The calculator takes a minute, the working is shown, and nothing you type leaves your browser.</p><a class="cta" href="/calculator.html">What the admin is costing you <span>&rarr;</span></a></div>
+  <div class="calcwrap" id="calculator">
+    <span class="eyebrow">Calculator</span>
+    <h3 class="calchead">What the admin is costing you<span class="dot">.</span></h3>
+    <p class="calclead">Put your own numbers against that last figure. The working is shown, and the sums happen in your browser and stay there; nothing you type is sent to us, or to anyone else.</p>
+    <form class="calc" autocomplete="off">
+      <div class="cfield wide"><label for="c-sector">The kind of business</label>
+        <select id="c-sector">
+          <option value="other" selected>Something else, or several things</option>
+          <option value="trade">Trades and construction</option>
+          <option value="edu">Education and training</option>
+          <option value="prop">Property and lettings</option>
+          <option value="retail">Retail and e-commerce</option>
+          <option value="health">Health and wellbeing</option>
+          <option value="prof">Professional services</option>
+        </select></div>
+      <div class="cfield"><label for="c-people">People who handle the admin</label><input type="number" id="c-people" value="3" min="1" max="500" inputmode="numeric"></div>
+      <div class="cfield"><label for="c-hours">Admin hours each does in a week</label><input type="number" id="c-hours" value="7" min="1" max="60" inputmode="numeric"></div>
+      <div class="cfield"><label for="c-enq">New enquiries in a typical month</label><input type="number" id="c-enq" value="30" min="0" max="10000" inputmode="numeric"></div>
+      <div class="cfield"><label for="c-rate">What an hour of that time costs (&pound;)</label><input type="number" id="c-rate" value="16" min="5" max="200" inputmode="numeric"><span class="hint">Pay plus the costs that sit on it. Change it if you know your figure.</span></div>
+    </form>
+    <div class="cstat">
+      <div><b id="r-hours">&mdash;</b><span>hours a month your team spends on admin</span></div>
+      <div><b id="r-auto">&mdash;</b><span>of those hours could realistically be automated</span></div>
+      <div><b id="r-month">&mdash;</b><span>a month, at your cost an hour</span></div>
+      <div class="net"><b id="r-year">&mdash;</b><span>over a year</span></div>
+    </div>
+    <p class="work" id="c-working"></p>
+    <p class="enqnote" id="c-enqnote"></p>
+    <p class="calcmeaning">It is an estimate built from four numbers and one assumption, so treat it as a pointer rather than a promise. An assessment counts the real thing: ten working days inside the business, every recurring task measured, a figure against every finding, and the list of what to leave alone. <a href="#talk">Start with a conversation &rarr;</a></p>
+  </div>
 </div></section>
 <section id="work" class="ls"><div class="lwrap">
   <div class="head"><span class="eyebrow">Selected work</span><h2>Examples of AI working in real businesses<span class="dot">.</span></h2><p>Each began the same way: a sense that the day was being spent on the wrong things.</p></div>
@@ -1078,7 +1121,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
   <g transform="translate(282.3105 733.0000) scale(1 -1)" fill="currentColor"><path d="M158.0 256.0Q158.0 328.0 171.5 410.5Q185.0 493.0 211.0 605.0Q215.0 627.0 215.0 635.0Q215.0 677.0 185.0 713.0Q180.0 720.0 180.0 724.0Q180.0 733.0 192.0 733.0Q198.0 733.0 201.0 731.0Q227.0 717.0 253.5 679.5Q280.0 642.0 280.0 605.0Q280.0 586.0 273.0 571.0Q211.0 435.0 211.0 299.0Q211.0 257.0 217.0 224.0Q223.0 191.0 231.0 172.0Q239.0 153.0 246.0 153.0Q251.0 153.0 254.0 168.0Q263.0 222.0 277.5 264.5Q292.0 307.0 313.0 353.0Q323.0 374.0 331.0 374.0Q339.0 374.0 339.0 359.0Q339.0 349.0 335.0 338.0Q316.0 281.0 300.5 220.5Q285.0 160.0 285.0 98.0Q285.0 69.0 289.0 48.0Q291.0 34.0 291.0 30.0Q291.0 12.0 282.5 3.0Q274.0 -6.0 261.0 -6.0Q249.0 -6.0 237.0 0.5Q225.0 7.0 219.0 16.0Q158.0 114.0 158.0 256.0ZM589.0 441.0Q582.0 441.0 582.0 449.0Q582.0 457.0 592.0 470.0Q605.0 485.0 632.5 507.0Q660.0 529.0 677.0 541.0Q682.0 544.0 682.0 547.0Q682.0 553.0 664.5 556.5Q647.0 560.0 611.0 564.0L568.0 570.0Q538.0 576.0 511.5 591.5Q485.0 607.0 474.0 621.0Q470.0 626.0 470.0 630.0Q470.0 635.0 474.5 637.5Q479.0 640.0 484.0 640.0Q492.0 640.0 505.0 632.0Q508.0 631.0 521.0 625.5Q534.0 620.0 551.0 617.0Q582.0 612.0 620.0 612.0Q666.0 612.0 763.0 622.0Q791.0 625.0 808.5 613.0Q826.0 601.0 826.0 590.0Q826.0 574.0 808.5 563.0Q791.0 552.0 748.0 535.0Q699.0 516.0 666.5 498.5Q634.0 481.0 608.0 453.0Q598.0 441.0 589.0 441.0ZM457.0 213.0Q457.0 240.0 464.0 271.0Q467.0 284.0 479.5 306.5Q492.0 329.0 500.0 328.0Q510.0 328.0 510.0 320.0Q510.0 315.0 504.0 301.0Q498.0 287.0 495.0 279.0Q487.0 258.0 487.0 237.0Q487.0 204.0 507.0 174.5Q527.0 145.0 569.5 127.0Q612.0 109.0 676.0 109.0Q737.0 109.0 801.0 124.0Q811.0 126.0 815.0 126.0Q839.0 126.0 857.0 112.0Q875.0 98.0 875.0 82.0Q875.0 66.0 854.0 59.0Q811.0 45.0 726.0 42.0Q577.0 37.0 517.0 86.5Q457.0 136.0 457.0 213.0Z"/></g>
   <g transform="translate(0.0000 1072.8978) scale(0.156482 -0.156482)" fill="currentColor"><path d="M220 0V614H0V700H531V614H312V0Z"/><path d="M1643.1 -15.0Q1548.1 -15.0 1475.1 30.0Q1402.1 75.0 1360.6 157.0Q1319.1 239.0 1319.1 350.0Q1319.1 461.0 1360.6 543.5Q1402.1 626.0 1475.1 671.5Q1548.1 717.0 1643.1 717.0Q1738.1 717.0 1810.6 671.5Q1883.1 626.0 1924.6 543.5Q1966.1 461.0 1966.1 350.0Q1966.1 239.0 1924.6 157.0Q1883.1 75.0 1810.6 30.0Q1738.1 -15.0 1643.1 -15.0ZM1643.1 75.0Q1711.1 75.0 1762.6 109.0Q1814.1 143.0 1842.6 204.5Q1871.1 266.0 1871.1 350.0Q1871.1 435.0 1842.6 496.5Q1814.1 558.0 1762.6 592.0Q1711.1 626.0 1643.1 626.0Q1575.1 626.0 1523.6 592.0Q1472.1 558.0 1443.1 496.5Q1414.1 435.0 1414.1 350.0Q1414.1 266.0 1443.1 204.5Q1472.1 143.0 1523.6 109.0Q1575.1 75.0 1643.1 75.0Z"/><path d="M2754.2 0.0V700.0H2845.2L3063.2 353.0L3280.2 700.0H3373.2V0.0H3279.2V541.0L3089.2 233.0H3037.2L2846.2 541.0V0.0Z"/><path d="M4485.3 -15.0Q4390.3 -15.0 4317.3 30.0Q4244.3 75.0 4202.8 157.0Q4161.3 239.0 4161.3 350.0Q4161.3 461.0 4202.8 543.5Q4244.3 626.0 4317.3 671.5Q4390.3 717.0 4485.3 717.0Q4580.3 717.0 4652.8 671.5Q4725.3 626.0 4766.8 543.5Q4808.3 461.0 4808.3 350.0Q4808.3 239.0 4766.8 157.0Q4725.3 75.0 4652.8 30.0Q4580.3 -15.0 4485.3 -15.0ZM4485.3 75.0Q4553.3 75.0 4604.8 109.0Q4656.3 143.0 4684.8 204.5Q4713.3 266.0 4713.3 350.0Q4713.3 435.0 4684.8 496.5Q4656.3 558.0 4604.8 592.0Q4553.3 626.0 4485.3 626.0Q4417.3 626.0 4365.8 592.0Q4314.3 558.0 4285.3 496.5Q4256.3 435.0 4256.3 350.0Q4256.3 266.0 4285.3 204.5Q4314.3 143.0 4365.8 109.0Q4417.3 75.0 4485.3 75.0Z"/><path d="M5596.400000000001 0.0V700.0H5687.400000000001L6046.400000000001 161.0V700.0H6138.400000000001V0.0H6050.400000000001L5687.400000000001 549.0V0.0Z"/><path d="M6926.500000000001 0.0V700.0H7017.500000000001V0.0Z"/><path d="M7805.60 366.00a54.90 54.90 0 1 0 109.80 0a54.90 54.90 0 1 0 -109.80 0Z"/><path d="M8703.500000000002 0.0 8976.500000000002 700.0H9057.500000000002L9330.500000000002 0.0H9227.500000000002L9160.500000000002 179.0H8871.500000000002L8804.500000000002 0.0ZM8902.500000000002 265.0H9129.500000000002L9017.500000000002 569.0Z"/><path d="M10118.600000000002 0.0V700.0H10209.600000000002V0.0Z"/></g>
 </svg></span></div>
-  <div><a class="plink" href="/calculator.html">Cost calculator</a><a class="plink" href="/privacy.html">Privacy notice</a></div>
+  <div><a class="plink" href="/#calculator">Cost calculator</a><a class="plink" href="/privacy.html">Privacy notice</a></div>
 </div></div></footer>
 <script>
 (function(){
@@ -1130,6 +1173,39 @@ html.mo [data-rv="mask"].in .mi{transform:none}
     b.addEventListener('click',function(){ var o=col.classList.toggle('open'); b.textContent=o?'Close':'What we built'; });
     col.appendChild(b);
   });
+})();
+</script>
+<script>
+(function(){
+  var SHARE={trade:.45,edu:.40,prop:.45,retail:.45,health:.35,prof:.35,other:.40};
+  var NAME={trade:"trades and construction",edu:"education and training",prop:"property and lettings",
+            retail:"retail and e-commerce",health:"health and wellbeing",prof:"professional services",
+            other:"a business like yours"};
+  function $(id){return document.getElementById(id)}
+  if(!$("c-sector"))return;
+  function num(id){var v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0}
+  function fmt(n){return n.toLocaleString("en-GB")}
+  function calc(){
+    var sec=$("c-sector").value, p=num("c-people"), h=num("c-hours"), e=num("c-enq"), r=num("c-rate");
+    var ok=p>0&&h>0&&r>0;
+    var share=SHARE[sec]||.4, hm=p*h*4.33, au=hm*share, pm=Math.round(au*r/10)*10, yr=pm*12;
+    $("r-hours").textContent=ok?Math.round(hm)+" hrs":"\u2014";
+    $("r-auto").textContent=ok?Math.round(au)+" hrs":"\u2014";
+    $("r-month").textContent=ok?"\u00a3"+fmt(pm):"\u2014";
+    $("r-year").textContent=ok?"\u00a3"+fmt(yr):"\u2014";
+    $("c-working").textContent=ok?("The working: "+p+(p===1?" person":" people")+" \u00d7 "+h
+      +" hours a week \u00d7 4.33 weeks is "+Math.round(hm)+" hours a month on admin. In "+NAME[sec]
+      +" we assume "+Math.round(share*100)+"% of it could be automated, a deliberately cautious figure: "
+      +Math.round(au)+" hours. At \u00a3"+fmt(r)+" an hour that is \u00a3"+fmt(pm)+" a month, rounded to the nearest ten pounds. "
+      +"The assessment replaces the assumption with a count."):"Put a number in each box and the working appears here.";
+    $("c-enqnote").textContent=ok&&e>0?("The admin is only half of it. On "+fmt(Math.round(e))
+      +" enquiries a month, the first reply matters too: a study of 3.5 million enquiries found conversion 391% higher "
+      +"when the call back came within a minute rather than later. That gain is not in the figure above."):"";
+  }
+  ["c-sector","c-people","c-hours","c-enq","c-rate"].forEach(function(id){
+    $(id).addEventListener("input",calc); $(id).addEventListener("change",calc);
+  });
+  calc();
 })();
 </script>
 <script>

@@ -699,11 +699,25 @@ section.ls.black p{color:#D8D8D8}
 .rstats .rs-what{display:block;font-size:15px;color:var(--ink);line-height:1.45;margin-top:12px}
 .rstats .rs-src{display:inline-block;font-family:var(--type);font-size:12.5px;color:var(--faint);margin-top:10px;text-decoration:none;border-bottom:1px solid transparent}
 .rstats a.rs-src:hover{color:var(--accent);border-bottom-color:var(--accent)}
-.rcalc{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:34px}
-.rcalc p{font-size:16px;color:var(--mid);max-width:54ch;margin:0;line-height:1.55}
+/* the calculator, on the page under the research (Tom, 07.10.2026) */
+.calcwrap{max-width:860px;margin-top:56px}
+.calchead{font-family:var(--type);font-weight:900;font-size:clamp(24px,3vw,34px);letter-spacing:-.015em;line-height:1.12;margin-top:14px}
+.calchead .dot{color:var(--accent)}
+.calclead{font-size:16px;color:var(--mid);margin-top:10px;max-width:60ch;line-height:1.6}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin:26px 0 24px;padding:26px;background:var(--paper);border:1px solid var(--line)}
+.calc .cfield{display:flex;flex-direction:column;gap:8px}
+.calc .cfield.wide{grid-column:1/-1}
+.calc label{font-family:var(--type);font-weight:700;font-size:14px}
+.calc input,.calc select{font-family:var(--type);font-size:17px;padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:0;width:100%}
+.calc input:focus,.calc select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.calc .hint{font-size:13px;color:var(--faint);line-height:1.4}
+.work{font-family:var(--type);font-size:14px;color:var(--mid);line-height:1.65;margin:18px 0 0;border-left:3px solid var(--accent);padding-left:14px}
+.enqnote,.calcmeaning{margin-top:16px;font-size:15px;color:var(--mid);max-width:70ch;line-height:1.6}
+.calcmeaning a{color:var(--accent);font-weight:700;text-decoration:none}
+.calcmeaning a:hover{text-decoration:underline}
 @media (max-width:980px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{padding:24px 22px}.rstats > div:nth-child(odd){border-left:0;padding-left:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
-@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.rcalc{margin-top:24px}.rcalc p{font-size:15px}}
+@media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{grid-template-columns:1fr;padding:18px;gap:16px}.calchead{font-size:22px}}
 
 
 /* motion (see MOTION_JS) */
