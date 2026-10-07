@@ -681,9 +681,10 @@ section.ls .head p{font-size:18px;color:var(--mid);max-width:56ch;margin-top:14p
 /* story */
 .storygrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start}
 .storygrid p{font-size:19px;color:var(--ink);max-width:68ch;line-height:1.65}
-.portrait{margin:0;max-width:440px;justify-self:end;width:100%}
-.portrait img{display:block;width:100%;height:auto;filter:grayscale(1)}
-.portrait figcaption{font-family:var(--type);font-size:14px;color:var(--faint);margin-top:12px}
+.portrait{margin:0 18px 0 0;max-width:440px;justify-self:end;width:100%;position:relative}
+.portrait::before{content:"";position:absolute;top:22px;left:22px;right:-18px;bottom:4px;background:var(--accent-tint);z-index:0}
+.portrait img{display:block;width:100%;height:auto;filter:grayscale(1);position:relative;z-index:1;border:1px solid var(--line)}
+.portrait figcaption{font-family:var(--type);font-size:14px;color:var(--faint);margin-top:26px;position:relative;z-index:1}
 @media (max-width:900px){.portrait{justify-self:start;max-width:360px}}
 .beats{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:s}
 .beats li{padding:22px 0 22px 72px;position:relative;counter-increment:s;border-bottom:1px solid var(--line)}
@@ -762,7 +763,7 @@ section.ls.black p{color:#D8D8D8}
   .pfig figcaption{font-size:13px}
   .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:16px;line-height:1.55}
-  .portrait{max-width:none}
+  .portrait{max-width:none;margin-right:14px}.portrait::before{top:14px;left:14px;right:-14px;bottom:10px}.portrait figcaption{margin-top:22px}
   .cdetails a{font-size:17px}.cdetails{gap:8px;margin-top:22px;padding-top:18px}
   .lfoot{padding:30px 0 40px}.lfoot .fb svg{width:120px}.lfoot .small{font-size:13px}.fcontact a{font-size:13px}
   /* working examples: figures always visible, the writing behind a toggle */
@@ -806,6 +807,7 @@ section.ls.black p{color:#D8D8D8}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
 .calc label,.calc .glab{font-family:var(--type);font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
 .crescol .enqnote,.crescol .calcmeaning{max-width:none}
+.calcta{margin-top:24px}
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
 .secgrid button{font-family:var(--type);font-size:15px;text-align:left;padding:13px 16px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s}
 .secgrid button:hover{border-color:var(--accent)}
@@ -962,7 +964,8 @@ html.mo [data-rv="mask"].in .mi{transform:none}
           <p class="work" id="c-working"></p>
         </div>
         <p class="enqnote">The speed of the first reply is where the enquiry money sits: a study of 3.5 million enquiries found conversion 391% higher when the call back came within a minute rather than later.</p>
-        <p class="calcmeaning">It is an estimate built from four numbers and sector assumptions, each one shown in the working, so treat it as a pointer rather than a promise. An assessment counts the real thing: ten working days inside the business, every recurring task measured, a figure against every finding, and the list of what to leave alone. <a href="#talk">Book a free scoping call &rarr;</a></p>
+        <p class="calcmeaning">It is an estimate built from four numbers and sector assumptions, each one shown in the working, so treat it as a pointer rather than a promise. An assessment counts the real thing: ten working days inside the business, every recurring task measured, a figure against every finding, and the list of what to leave alone.</p>
+        <p class="calcta"><a class="cta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call <span>&rarr;</span></a></p>
       </div>
     </div>
   </div>
@@ -984,12 +987,12 @@ html.mo [data-rv="mask"].in .mi{transform:none}
       <div class="cstat"><div><b>22 hrs</b><span>a month returned to the owners</span></div><div><b>&pound;2,378</b><span>a month the old way was costing</span></div><div class="net"><b>&pound;19,856</b><span>net benefit in year one</span></div></div>
       <span class="didlab">What we built</span><ul class="did"><li>Stock levels updated automatically the moment an item sells</li><li>Order and delivery queries answered from live tracking data</li><li>Product descriptions drafted once, approved, and published everywhere</li></ul></div>
   </div>
-  <p class="foot-note">Engagement summaries are illustrative of scope and approach. The course figures are estimated for a typical qualification, at &pound;37.50 an hour and before our fee. The other figures were counted during the assessment and measured again once the improvement was live.</p>
+  <p class="foot-note">Illustrative examples, with estimated figures.</p>
 </div></section>
 <section id="how" class="ls alt"><div class="lwrap">
   <div class="head"><span class="eyebrow">How we work</span><h2>Four clear stages<span class="dot">.</span></h2><p>Nothing is built before you have seen the figure for it. Where we can, we work with the systems you already have; where one would need to change, you hear it from us before anything starts.</p></div>
   <ol class="vtl">
-    <li><span class="n">1</span><div class="vt"><h3>Chat</h3><span class="when">Twenty minutes, no charge</span></div>
+    <li><span class="n">1</span><div class="vt"><h3>Chat</h3><span class="when">Your free scoping call: twenty minutes, no charge</span></div>
       <div class="vd"><p>A short conversation about how your business runs and where the days go. We tell you where the opportunities are likely to be and whether an assessment would be worth your money. If it would not, we say so, and you have spent twenty minutes and nothing else.</p><span class="out">A clear answer on whether this is right for you</span></div></li>
     <li><span class="n">2</span><div class="vt"><h3>Assess</h3><span class="when">Ten working days, one fixed fee</span></div>
       <div class="vd"><p>We immerse ourselves in your business to understand how it really operates day to day: how customers arrive, how work is delivered, where it slows, and where the hours leak away without anyone quite noticing. Every recurring task is measured, the bottlenecks and roadblocks are named, and the cost of the current way of working is set out in pounds. The report highlights where the gaps are, where AI can practically help, and what should be left exactly as it is.</p><span class="out">A costed, prioritised plan for the best version of your business</span></div></li>
@@ -1134,7 +1137,6 @@ html.mo [data-rv="mask"].in .mi{transform:none}
     <figcaption>The know-how moves from a person to the business. When the next person arrives, it's already there.</figcaption>
   </figure></div>
   </div>
-  <p class="trust">Each improvement is a fixed fee, agreed in writing before it is built. We are based in North Wales and work across the UK, remotely and on site.</p>
 </div></section>
 <section id="story" class="ls alt"><div class="lwrap">
   <div class="head"><span class="eyebrow">Our story</span><h2>Inspired to help other businesses<span class="dot">.</span></h2></div>
