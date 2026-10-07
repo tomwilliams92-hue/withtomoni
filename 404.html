@@ -602,7 +602,7 @@ section.ls.black .head h2 .dot{color:#fff;opacity:.5}
 section.ls.black p{color:#D8D8D8}
 .contactgrid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
 .cdetails{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
-.cdetails a{font-family:var(--type);font-weight:700;font-size:clamp(20px,2.4vw,28px);color:#fff;text-decoration:none;letter-spacing:-.01em}
+.cdetails a{font-family:var(--type);font-weight:700;font-size:clamp(20px,2.4vw,28px);color:#fff;text-decoration:none;letter-spacing:-.01em;border-bottom:0;padding-bottom:0}
 .cdetails a:hover{opacity:.75}
 .fcontact{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px}
 .fcontact a{font-family:var(--type);font-size:14px;font-weight:700;color:var(--ink);text-decoration:none}
@@ -665,7 +665,7 @@ section.ls.black p{color:#D8D8D8}
   .pfig figcaption{font-size:13px}
   .trust{font-size:13px;margin-top:18px}
   .storygrid p{font-size:16px;line-height:1.55}
-  .portrait{max-width:280px}
+  .portrait{max-width:none}
   .cdetails a{font-size:17px}.cdetails{gap:8px;margin-top:22px;padding-top:18px}
   .lfoot{padding:30px 0 40px}.lfoot .fb svg{width:120px}.lfoot .small{font-size:13px}.fcontact a{font-size:13px}
   /* working examples: figures always visible, the writing behind a toggle */
@@ -707,13 +707,14 @@ section.ls.black p{color:#D8D8D8}
 .calcgrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
 .calc{display:grid;grid-template-columns:1fr;gap:26px;padding:28px;background:var(--paper);border:1px solid var(--line)}
 .calc .cfield{display:flex;flex-direction:column;gap:8px}
-.calc label,.calc .glab{font-family:var(--type);font-weight:700;font-size:14px;letter-spacing:.02em}
+.calc label,.calc .glab{font-family:var(--type);font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+.crescol .enqnote,.crescol .calcmeaning{max-width:none}
 .secgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
 .secgrid button{font-family:var(--type);font-size:15px;text-align:left;padding:13px 16px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s}
 .secgrid button:hover{border-color:var(--accent)}
 .secgrid button.sel{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 .calc .lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.calc output{font-family:var(--type);font-weight:900;font-size:17px;color:var(--accent);white-space:nowrap}
+.calc output{font-family:var(--type);font-weight:900;font-size:18px;color:var(--accent);white-space:nowrap}
 .calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:2px 0 0;background:transparent;cursor:pointer}
 .calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(to right,var(--accent) var(--fill,50%),var(--line) var(--fill,50%))}
 .calc input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
