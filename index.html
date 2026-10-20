@@ -712,6 +712,43 @@ section.ls.black p{color:#D8D8D8}
 .fcontact a{font-family:var(--type);font-size:14px;font-weight:700;color:var(--ink);text-decoration:none}
 .fcontact a:hover{color:var(--accent)}
 @media (max-width:760px){.contactgrid{grid-template-columns:1fr}}
+/* photos */
+#moment{position:relative;isolation:isolate;overflow:hidden;padding:88px 0}
+#moment .mimg{position:absolute;inset:0;z-index:-1}
+#moment .mimg img{display:block;width:100%;height:100%;object-fit:cover;object-position:62% 42%}
+#moment .mimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,15,34,.94) 0%,rgba(16,15,34,.86) 36%,rgba(16,15,34,.45) 52%,rgba(16,15,34,0) 68%)}
+.mtext{max-width:min(560px,46vw)}
+.mtext .head{margin-bottom:26px !important}
+.mtext .head h2{margin-top:0 !important;max-width:18ch !important}
+.mtext p{color:#D6D3E8;margin-top:16px}
+.mtext .head + p{margin-top:0}
+.mtext .cta{margin-top:30px}
+@media (max-width:999px){
+  #moment{padding:0 0 72px}
+  #moment .mimg{position:relative;inset:auto;z-index:0;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%);mask-image:linear-gradient(180deg,#000 60%,transparent 100%)}
+  #moment .mimg img{height:auto;aspect-ratio:4/3;object-position:70% 50%}
+  #moment .mimg::after{display:none}
+  .mtext{max-width:640px;margin-top:-8px}
+}
+.whathead{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:56px;align-items:stretch;margin-bottom:56px}
+.whathead .head{grid-column:1;margin-bottom:0 !important}
+section.ls .whathead .head p{font-size:clamp(19px,1.65vw,22px);line-height:1.55;color:var(--ink);max-width:none}
+.whatimg{grid-column:2 / span 2;margin:0;position:relative;min-height:300px;background:#1A1A1A}
+.whatimg img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 64%}
+@media (max-width:900px){.whathead{grid-template-columns:1fr;row-gap:28px;margin-bottom:24px}.whatimg{grid-column:1;min-height:0}.whatimg img{position:static;height:auto;aspect-ratio:4/3}}
+.wimg{margin:0 0 24px;background:#1A1A1A}
+.wimg img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+@media (min-width:901px){
+  .cols3{column-gap:56px}
+  .cols3 > div{margin-right:0;padding-right:0;border-right:0;position:relative}
+  .cols3 > div:not(:last-child)::after{content:"";position:absolute;top:0;bottom:0;right:-28px;border-right:1px solid var(--line)}
+}
+.contactgrid:has(.tphoto){grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:64px;align-items:center}
+.tphoto{margin:0;background:#100F22}
+.tphoto img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+@media (max-width:900px){.contactgrid:has(.tphoto){grid-template-columns:1fr;gap:40px}.tphoto{max-width:640px}.tphoto img{aspect-ratio:4/3;object-position:40% 40%}.wimg img{aspect-ratio:4/3;object-position:50% 40%}}
+@media (max-width:760px){
+}
 .lfoot{border-top:1px solid var(--line);padding:44px 0 56px}
 .lfoot .in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:start}
 .lfoot .fb svg{width:150px;height:auto;display:block;color:var(--ink)}
@@ -906,7 +943,8 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 </header>
 
 <section id="what" class="ls"><div class="lwrap">
-  <div class="head"><span class="eyebrow">What we do</span><h2 class="vh">What we do.</h2><p>We work in three stages. First, we find the jobs that are costing your business time and money, from the admin to the customer enquiries. Then we automate the ones worth fixing. After that, we look after them, so they keep working as your business grows.</p></div>
+  <div class="whathead"><div class="head"><span class="eyebrow">What we do</span><h2 class="vh">What we do.</h2><p>We work in three stages. First, we find the jobs that are costing your business time and money, from the admin to the customer enquiries. Then we automate the ones worth fixing. After that, we look after them, so they keep working as your business grows.</p></div>
+  <figure class="whatimg"><img src="img/what-800.webp" srcset="img/what-800.webp 800w, img/what-1400.webp 1400w" sizes="(max-width:900px) 92vw, 760px" alt="Working through something on a laptop in a café armchair" width="1400" height="933" loading="lazy" decoding="async"></figure></div>
   <div class="cols3">
     <div><div class="pico"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><g transform="translate(1.5 1.5)"><circle cx="15" cy="15" r="9"/><path d="M22 22l8 8"/></g></svg></div><span class="pn">Assess</span><h3>Opportunity assessment</h3>
       <p>Ten working days immersed in your operation, alongside the people who do the work. We unpack how the business runs day to day: the bottlenecks, the roadblocks, and the jobs that quietly eat the hours. You receive a written case for what to change, in what order, and what each improvement is worth in pounds.</p>
@@ -919,14 +957,15 @@ html.mo [data-rv="mask"].in .mi{transform:none}
       <ul><li>Hosted, monitored and maintained</li><li>Faults resolved by the next working day</li><li>One page a month, in hours and pounds</li></ul></div>
   </div>
 </div></section>
-<section id="moment" class="ls dark"><div class="lwrap">
-  <div class="head"><span class="eyebrow">The moment</span><h2>Not a business run by AI. A business that runs better because of it<span class="dot">.</span></h2></div>
-  <div class="sidebyside">
-    <p>Most teams have started using AI already, in their own way and on their own initiative, and most of the people running those businesses carry a quiet suspicion that everyone else is further ahead. The honest position is simpler. The business itself is unchanged, with the same headcount, the same margin and the same processes, and that is exactly where the gain is waiting.</p>
-    <div><p>The aim is a more effective business, measured in time and in cost: fewer hours on work that repeats, a lower cost for each job done, and the same people spending more of their day on the work they are good at. AI is the means, not the point. It is used where the figure justifies it, built into the way the work is done, and left out where a person&rsquo;s judgement is the service.</p>
-    <a class="cta" href="#talk" style="margin-top:26px">Talk to us about yours <span>&rarr;</span></a></div>
-  </div>
-</div></section>
+<section id="moment" class="ls dark">
+<div class="mimg"><picture><source media="(max-width:999px)" srcset="img/moment-m-800.webp 800w, img/moment-m-1200.webp 1200w" sizes="100vw"><img src="img/moment-1400.webp" srcset="img/moment-1400.webp 1400w, img/moment-2400.webp 2400w" sizes="100vw" alt="Two people in conversation across a laptop in a dimly lit café" width="2400" height="1600" loading="lazy" decoding="async"></picture></div>
+<div class="lwrap"><div class="mtext">
+  <div class="head"><h2>Not a business run by AI. A business that runs better because of it<span class="dot">.</span></h2></div>
+  <p>Most teams have started using AI already, in their own way and on their own initiative, and most of the people running those businesses carry a quiet suspicion that everyone else is further ahead. The honest position is simpler. The business itself is unchanged, with the same headcount, the same margin and the same processes, and that is exactly where the gain is waiting.</p>
+  <p>The aim is a more effective business, measured in time and in cost: fewer hours on work that repeats, a lower cost for each job done, and the same people spending more of their day on the work they are good at. AI is the means, not the point. It is used where the figure justifies it, built into the way the work is done, and left out where a person&rsquo;s judgement is the service.</p>
+  <a class="cta" href="#talk">Talk to us about yours <span>&rarr;</span></a>
+</div></div>
+</section>
 <section id="numbers" class="ls alt"><div class="lwrap">
   <div class="head"><span class="eyebrow">The research</span><h2>What the research says<span class="dot">.</span></h2><p>None of these figures are ours. They are published research, each one sourced, and together they describe the gap we work in: most businesses believe AI matters, and most do not yet have a plan for it.</p></div>
   <div class="rstats">
@@ -980,15 +1019,15 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 <section id="work" class="ls"><div class="lwrap">
   <div class="head"><span class="eyebrow">Selected work</span><h2>Examples of AI working in real businesses<span class="dot">.</span></h2><p>Each began the same way: a sense that the day was being spent on the wrong things.</p></div>
   <div class="cols3">
-    <div><span class="pn">Build <span class="sec">Training and education centre</span></span><h3>A new course built from the qualification specification</h3>
+    <div><figure class="wimg"><img src="img/work-training-500.webp" srcset="img/work-training-500.webp 500w, img/work-training-800.webp 800w" sizes="(max-width:900px) 92vw, 360px" alt="A mentor and a learner working side by side at a screen" width="800" height="1000" loading="lazy" decoding="async"></figure><span class="pn">Build <span class="sec">Training and education centre</span></span><h3>A new course built from the qualification specification</h3>
       <p>Each new qualification took around 400 hours to write and build by hand. We built a tailored course from the Ofqual specification, in an LMS designed with the centre, with video, guided learning, assessments and quizzes. The centre&rsquo;s own time went on reviewing and signing it off.</p>
       <div class="cstat"><div><b>380 hrs</b><span>returned to the team on every new qualification</span></div><div><b>&pound;15,000</b><span>what building it by hand would cost</span></div><div class="net"><b>&pound;14,250</b><span>saved on every new qualification</span></div></div>
       <span class="didlab">What we built</span><ul class="did"><li>A tailored course built from the Ofqual specification</li><li>Video and guided learning content for every unit</li><li>Assessments and quizzes in an LMS designed with the centre</li></ul></div>
-    <div><span class="pn">Build <span class="sec">Physiotherapy &middot; two sites</span></span><h3>Enquiries answered within seconds, seven days a week</h3>
+    <div><figure class="wimg"><img src="img/work-physio-500.webp" srcset="img/work-physio-500.webp 500w, img/work-physio-800.webp 800w" sizes="(max-width:900px) 92vw, 360px" alt="A member of staff answering messages at a laptop under a desk lamp" width="800" height="1000" loading="lazy" decoding="async"></figure><span class="pn">Build <span class="sec">Physiotherapy &middot; two sites</span></span><h3>Enquiries answered within seconds, seven days a week</h3>
       <p>Weekend enquiries weren&rsquo;t answered in time, so patients booked elsewhere. One inbox for every message, and the patient paperwork completed before arrival. The exercise programmes were deliberately left with the physiotherapists, because that judgement is the service.</p>
       <div class="cstat"><div><b>13.5 hrs</b><span>a month returned to the front desk</span></div><div><b>&pound;1,307</b><span>a month the old way was costing</span></div><div class="net"><b>&pound;8,194</b><span>net benefit in year one</span></div></div>
       <span class="didlab">What we built</span><ul class="did"><li>Every enquiry answered automatically within seconds, evenings and weekends included</li><li>One shared inbox for email, web forms and social messages</li><li>Patient forms completed online before the first appointment</li></ul></div>
-    <div><span class="pn">Build <span class="sec">Online homeware retailer</span></span><h3>Stock that updates itself, and lapsed customers invited back</h3>
+    <div><figure class="wimg"><img src="img/work-retail-500.webp" srcset="img/work-retail-500.webp 500w, img/work-retail-800.webp 800w" sizes="(max-width:900px) 92vw, 360px" alt="Checking stock between the shelves of a storeroom" width="800" height="1000" loading="lazy" decoding="async"></figure><span class="pn">Build <span class="sec">Online homeware retailer</span></span><h3>Stock that updates itself, and lapsed customers invited back</h3>
       <p>The owners spent Sunday evenings writing the same product description three times. Three improvements for a two-person business: stock that updates on sale, order queries answered from the tracking data, and copy drafted once and approved.</p>
       <div class="cstat"><div><b>22 hrs</b><span>a month returned to the owners</span></div><div><b>&pound;2,378</b><span>a month the old way was costing</span></div><div class="net"><b>&pound;19,856</b><span>net benefit in year one</span></div></div>
       <span class="didlab">What we built</span><ul class="did"><li>Stock levels updated automatically the moment an item sells</li><li>Order and delivery queries answered from live tracking data</li><li>Product descriptions drafted once, approved, and published everywhere</li></ul></div>
@@ -1161,6 +1200,7 @@ html.mo [data-rv="mask"].in .mi{transform:none}
     <a class="cta booknow" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call <span>&rarr;</span></a>
     <p class="orcall">Or call or email, whichever suits you.</p>
     <div class="cdetails"><a href="tel:+447971512158">07971 512158</a><a href="mailto:tom@withtomoni.com">tom@withtomoni.com</a></div></div>
+    <figure class="tphoto"><img src="img/talk-600.webp" srcset="img/talk-600.webp 600w, img/talk-900.webp 900w" sizes="(max-width:760px) 92vw, 440px" alt="A conversation across a café table under a warm lamp" width="900" height="1125" loading="lazy" decoding="async"></figure>
   </div>
 </div></section>
 
