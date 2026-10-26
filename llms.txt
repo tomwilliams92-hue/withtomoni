@@ -2,7 +2,7 @@
 
 > Tomoni is an independent AI consultancy. We help businesses work out where AI genuinely makes them more efficient, and build it in where it does.
 
-Tomoni AI is run by Tom Williams. Based in North Wales, working with businesses across the UK, remotely or on site.
+Tomoni AI is run by Tom Williams. Based in Abergele, North Wales. Works on site with businesses across North Wales (Conwy, Llandudno, Colwyn Bay, Rhyl, Bangor, Wrexham) and Chester and Cheshire, and remotely with businesses anywhere in the UK.
 
 ## What we do
 - Opportunity assessment: Ten working days immersed in your operation, alongside the people who do the work. We unpack how the business runs day to day: the bottlenecks, the roadblocks, and the jobs that quietly eat the hours. You receive a written case for what to change, in what order, and what each improvement is worth in pounds.
@@ -16,3 +16,12 @@ Tomoni AI is run by Tom Williams. Based in North Wales, working with businesses 
 - Book a free scoping call: https://calendar.app.google/3De1SnhdepYQe9cm9
 - Cost calculator: https://withtomoni.com/#calculator
 - Privacy notice: https://withtomoni.com/privacy.html
+
+## Where we work
+- North Wales: https://withtomoni.com/north-wales/ (Abergele, Conwy, Llandudno, Colwyn Bay, Rhyl, Prestatyn, Bangor, Caernarfon, Anglesey, Denbigh, Ruthin, Mold, Flint, Wrexham)
+- Chester and Cheshire: https://withtomoni.com/chester-cheshire/ (Chester, Ellesmere Port, Frodsham, Northwich, Winsford, Crewe, Nantwich, Warrington, Knutsford, Macclesfield, Wilmslow)
+
+## Guides
+- What AI can actually do for a small business. https://withtomoni.com/guides/what-ai-can-do-for-a-small-business/
+- What admin is costing your business. https://withtomoni.com/guides/what-admin-is-costing-your-business/
+- Questions to ask before you hire an AI consultant. https://withtomoni.com/guides/questions-to-ask-an-ai-consultant/
