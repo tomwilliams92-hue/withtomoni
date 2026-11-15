@@ -793,6 +793,88 @@ section.ls .whathead .head p{font-size:clamp(19px,1.65vw,22px);line-height:1.55;
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
 @media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{padding:18px;gap:20px}.calchead{font-size:22px}.secgrid{grid-template-columns:1fr}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
 
+/* ---------- 13.11.2026 pass (Tom: "fix what you suggested"; "ours is a little static") ---------- */
+/* labels in sentence case: spaced-out capitals read as "AI-made" to Tom */
+section.ls .eyebrow,.cols3 .pn,.cols3 .pn .sec,.didlab,.place .flab,.calc label,.calc .glab,.leaks .llab,.cres .rlab{text-transform:none;letter-spacing:0}
+section.ls .eyebrow{font-size:15px}
+.cols3 .pn,.didlab{font-size:14px}
+.cols3 .pn .sec{margin-left:8px}
+.place .flab{font-size:15px}
+.calc label,.calc .glab{font-size:14px;color:var(--ink)}
+.leaks .llab,.cres .rlab{font-size:14px}
+/* What we do is now the paragraph and the photo; the detail lives in How we work */
+#what .whathead{margin-bottom:0}
+/* diagram captions met contrast at 4.1:1 only; --mid clears 4.5:1 */
+.pfig figcaption{color:var(--mid)}
+/* the calculator's working, one click away */
+.workd{margin-top:20px}
+.workd summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--type);font-weight:700;font-size:14px;color:var(--accent)}
+.workd summary::-webkit-details-marker{display:none}
+.workd summary::after{content:"+";font-weight:900;font-size:17px;line-height:1;transition:transform .25s}
+.workd[open] summary::after{transform:rotate(45deg)}
+.workd .work{margin-top:12px}
+/* the booking button stays in the bar on phones and tablets */
+.navcta .ns{display:none}
+@media (max-width:900px){.navcta{display:inline-flex}.navcta .nl{display:none}.navcta .ns{display:inline}}
+@media (max-width:700px){.navcta{display:inline-flex;margin-left:auto;font-size:12.5px;padding:9px 12px}.tg{margin-left:0}}
+/* tablets and narrow laptops: the links go behind the menu button, as on phones, so nothing is cut off; small laptops: closer links */
+@media (min-width:701px) and (max-width:980px){
+  .lnav{display:none}.navcta{margin-left:auto}
+  .menubtn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:transparent;border:0;padding:8px;cursor:pointer;margin-right:-8px}
+  .menubtn span{display:block;height:2px;background:var(--ink);border-radius:1px;transition:transform .18s,opacity .18s}
+  .topbar.nav-open .menubtn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .topbar.nav-open .menubtn span:nth-child(2){opacity:0}
+  .topbar.nav-open .menubtn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .topbar.nav-open .lnav{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:4px 48px 18px;gap:0;overflow:visible;box-shadow:0 12px 24px rgba(0,0,0,.06)}
+  .topbar.nav-open .lnav a{font-size:16px;opacity:1;padding:13px 0;border-top:1px solid var(--line)}
+  .topbar.nav-open .lnav a:first-child{border-top:0}
+}
+@media (min-width:981px) and (max-width:1080px){.topbar .in.l{gap:20px}.lnav{gap:15px}.lnav a{font-size:13.5px}}
+/* phones: sector buttons two to a row, the research in a 2 x 2 */
+@media (max-width:700px){.secgrid{grid-template-columns:1fr 1fr;gap:8px}.secgrid button{font-size:13.5px;line-height:1.25;padding:10px 11px}}
+@media (max-width:480px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{border-left:0;padding:18px 12px 18px 0}.rstats > div:nth-child(even){border-left:1px solid var(--line);padding:18px 0 18px 14px}.rstats > div:nth-child(2){border-top:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}.rstats b{font-size:28px}.rstats .rs-what{font-size:13.5px;line-height:1.4}.rstats .rs-src{font-size:11.5px}}
+/* motion that keeps going (MOTION2_JS); nothing here runs under reduced motion */
+.rstats b,.cstat b,.cres .big,.cres .csub b{font-variant-numeric:tabular-nums}
+.cta span{display:inline-block;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.cta:hover span{transform:translateX(5px)}
+.pfig{transition:border-color .3s,box-shadow .4s,translate .5s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.pfig:hover{border-color:var(--accent-mid);box-shadow:0 22px 44px -28px rgba(61,58,122,.5);translate:0 -4px}}
+.flowdot{fill:var(--accent)}
+.vtl .vfill{position:absolute;left:39px;top:88px;bottom:-2px;width:3px;background:var(--accent);transform-origin:top;transform:scaleY(0);pointer-events:none}
+@media (max-width:700px){.vtl .vfill{left:23px;top:54px;width:2px}}
+html.mo .vtl .n{border:3px solid var(--accent);transition:background-color .5s,color .5s,border-color .5s,box-shadow .6s}
+html.mo .vtl li:not(.lit) .n{background:var(--paper);color:var(--accent-mid);border-color:var(--accent-mid);box-shadow:0 0 0 0 var(--accent-tint)}
+html.mo .vtl li.lit .n{animation:vpop .6s cubic-bezier(.16,1,.3,1)}
+@keyframes vpop{0%{transform:scale(.86)}60%{transform:scale(1.08)}100%{transform:none}}
+html.mo .wimg,html.mo .whatimg,html.mo #moment .mimg{overflow:hidden}
+html.mo .wimg img,html.mo .whatimg img{scale:1.12;transition:scale .9s cubic-bezier(.16,1,.3,1)}
+html.mo #moment .mimg img{scale:1.14}
+@media (hover:hover){html.mo #work .cols3 > div:hover .wimg img{scale:1.18}}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.cres{position:relative}
+html.mo .cres::before{content:"";position:absolute;inset:-1px;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--ang),transparent 0deg,transparent 210deg,var(--accent) 290deg,#B3B0DA 325deg,transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:cspin 5s linear infinite}
+@keyframes cspin{to{--ang:360deg}}
+/* the booking button is THE call to action (Tom, 13.11.2026: "glow? shadow?"): the same lit indigo button
+   everywhere, white or dark sections alike, with a glow, a slow pulse and a lift on hover (the sweeping shimmer went, 15.11.2026: Tom didn't like it) */
+.cta[href*="calendar.app.google"],section.ls.black .cta[href*="calendar.app.google"],section.ls.dark .cta[href*="calendar.app.google"],.navcta{
+  position:relative;overflow:hidden;isolation:isolate;color:#fff;
+  background:linear-gradient(135deg,#5652B0 0%,var(--accent) 52%,#2C2960 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(143,139,201,.45),0 12px 30px -10px rgba(61,58,122,.75),0 0 26px rgba(143,139,201,.28);
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .35s}
+.cta[href*="calendar.app.google"]:hover,section.ls.black .cta[href*="calendar.app.google"]:hover,section.ls.dark .cta[href*="calendar.app.google"]:hover,.navcta:hover{
+  color:#fff;transform:translateY(-2px);background:linear-gradient(135deg,#6360C4 0%,#4A46A0 52%,#332F70 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 1px rgba(179,176,218,.7),0 18px 40px -12px rgba(61,58,122,.85),0 0 40px rgba(143,139,201,.55)}
+.vhero .cta[href*="calendar.app.google"]{font-size:16px;padding:17px 28px}
+section.ls.black .cta[href*="calendar.app.google"]{font-size:16px;padding:17px 28px}
+html.mo .cta[href*="calendar.app.google"]{animation:bkglow 3.4s ease-in-out infinite}
+html.mo .cta[href*="calendar.app.google"]:hover{animation:none}
+@keyframes bkglow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(143,139,201,.45),0 12px 30px -10px rgba(61,58,122,.75),0 0 22px rgba(143,139,201,.22)}
+  50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(179,176,218,.7),0 12px 30px -10px rgba(61,58,122,.75),0 0 42px 4px rgba(143,139,201,.55)}}
+@media (max-width:700px){.vhero .cta[href*="calendar.app.google"],section.ls.black .cta[href*="calendar.app.google"]{font-size:15px;padding:14px 20px}}
+
 
 /* motion (see MOTION_JS) */
 html.lenis,html.lenis body{height:auto}

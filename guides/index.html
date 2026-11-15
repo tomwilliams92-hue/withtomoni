@@ -793,6 +793,88 @@ section.ls .whathead .head p{font-size:clamp(19px,1.65vw,22px);line-height:1.55;
 @media (max-width:480px){.rstats{grid-template-columns:1fr}.rstats > div{border-left:0;padding:20px 0}.rstats > div:nth-child(2){border-top:1px solid var(--line)}}
 @media (max-width:700px){.rstats b{font-size:32px}.rstats .rs-what{font-size:14px;margin-top:10px}.calcwrap{margin-top:36px}.calc{padding:18px;gap:20px}.calchead{font-size:22px}.secgrid{grid-template-columns:1fr}.cres{padding:22px 20px}.cres .big{font-size:44px}.cres .csub{gap:12px}.cres .csub b{font-size:18px}}
 
+/* ---------- 13.11.2026 pass (Tom: "fix what you suggested"; "ours is a little static") ---------- */
+/* labels in sentence case: spaced-out capitals read as "AI-made" to Tom */
+section.ls .eyebrow,.cols3 .pn,.cols3 .pn .sec,.didlab,.place .flab,.calc label,.calc .glab,.leaks .llab,.cres .rlab{text-transform:none;letter-spacing:0}
+section.ls .eyebrow{font-size:15px}
+.cols3 .pn,.didlab{font-size:14px}
+.cols3 .pn .sec{margin-left:8px}
+.place .flab{font-size:15px}
+.calc label,.calc .glab{font-size:14px;color:var(--ink)}
+.leaks .llab,.cres .rlab{font-size:14px}
+/* What we do is now the paragraph and the photo; the detail lives in How we work */
+#what .whathead{margin-bottom:0}
+/* diagram captions met contrast at 4.1:1 only; --mid clears 4.5:1 */
+.pfig figcaption{color:var(--mid)}
+/* the calculator's working, one click away */
+.workd{margin-top:20px}
+.workd summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--type);font-weight:700;font-size:14px;color:var(--accent)}
+.workd summary::-webkit-details-marker{display:none}
+.workd summary::after{content:"+";font-weight:900;font-size:17px;line-height:1;transition:transform .25s}
+.workd[open] summary::after{transform:rotate(45deg)}
+.workd .work{margin-top:12px}
+/* the booking button stays in the bar on phones and tablets */
+.navcta .ns{display:none}
+@media (max-width:900px){.navcta{display:inline-flex}.navcta .nl{display:none}.navcta .ns{display:inline}}
+@media (max-width:700px){.navcta{display:inline-flex;margin-left:auto;font-size:12.5px;padding:9px 12px}.tg{margin-left:0}}
+/* tablets and narrow laptops: the links go behind the menu button, as on phones, so nothing is cut off; small laptops: closer links */
+@media (min-width:701px) and (max-width:980px){
+  .lnav{display:none}.navcta{margin-left:auto}
+  .menubtn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:transparent;border:0;padding:8px;cursor:pointer;margin-right:-8px}
+  .menubtn span{display:block;height:2px;background:var(--ink);border-radius:1px;transition:transform .18s,opacity .18s}
+  .topbar.nav-open .menubtn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .topbar.nav-open .menubtn span:nth-child(2){opacity:0}
+  .topbar.nav-open .menubtn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .topbar.nav-open .lnav{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:4px 48px 18px;gap:0;overflow:visible;box-shadow:0 12px 24px rgba(0,0,0,.06)}
+  .topbar.nav-open .lnav a{font-size:16px;opacity:1;padding:13px 0;border-top:1px solid var(--line)}
+  .topbar.nav-open .lnav a:first-child{border-top:0}
+}
+@media (min-width:981px) and (max-width:1080px){.topbar .in.l{gap:20px}.lnav{gap:15px}.lnav a{font-size:13.5px}}
+/* phones: sector buttons two to a row, the research in a 2 x 2 */
+@media (max-width:700px){.secgrid{grid-template-columns:1fr 1fr;gap:8px}.secgrid button{font-size:13.5px;line-height:1.25;padding:10px 11px}}
+@media (max-width:480px){.rstats{grid-template-columns:1fr 1fr}.rstats > div{border-left:0;padding:18px 12px 18px 0}.rstats > div:nth-child(even){border-left:1px solid var(--line);padding:18px 0 18px 14px}.rstats > div:nth-child(2){border-top:0}.rstats > div:nth-child(n+3){border-top:1px solid var(--line)}.rstats b{font-size:28px}.rstats .rs-what{font-size:13.5px;line-height:1.4}.rstats .rs-src{font-size:11.5px}}
+/* motion that keeps going (MOTION2_JS); nothing here runs under reduced motion */
+.rstats b,.cstat b,.cres .big,.cres .csub b{font-variant-numeric:tabular-nums}
+.cta span{display:inline-block;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.cta:hover span{transform:translateX(5px)}
+.pfig{transition:border-color .3s,box-shadow .4s,translate .5s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.pfig:hover{border-color:var(--accent-mid);box-shadow:0 22px 44px -28px rgba(61,58,122,.5);translate:0 -4px}}
+.flowdot{fill:var(--accent)}
+.vtl .vfill{position:absolute;left:39px;top:88px;bottom:-2px;width:3px;background:var(--accent);transform-origin:top;transform:scaleY(0);pointer-events:none}
+@media (max-width:700px){.vtl .vfill{left:23px;top:54px;width:2px}}
+html.mo .vtl .n{border:3px solid var(--accent);transition:background-color .5s,color .5s,border-color .5s,box-shadow .6s}
+html.mo .vtl li:not(.lit) .n{background:var(--paper);color:var(--accent-mid);border-color:var(--accent-mid);box-shadow:0 0 0 0 var(--accent-tint)}
+html.mo .vtl li.lit .n{animation:vpop .6s cubic-bezier(.16,1,.3,1)}
+@keyframes vpop{0%{transform:scale(.86)}60%{transform:scale(1.08)}100%{transform:none}}
+html.mo .wimg,html.mo .whatimg,html.mo #moment .mimg{overflow:hidden}
+html.mo .wimg img,html.mo .whatimg img{scale:1.12;transition:scale .9s cubic-bezier(.16,1,.3,1)}
+html.mo #moment .mimg img{scale:1.14}
+@media (hover:hover){html.mo #work .cols3 > div:hover .wimg img{scale:1.18}}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.cres{position:relative}
+html.mo .cres::before{content:"";position:absolute;inset:-1px;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--ang),transparent 0deg,transparent 210deg,var(--accent) 290deg,#B3B0DA 325deg,transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:cspin 5s linear infinite}
+@keyframes cspin{to{--ang:360deg}}
+/* the booking button is THE call to action (Tom, 13.11.2026: "glow? shadow?"): the same lit indigo button
+   everywhere, white or dark sections alike, with a glow, a slow pulse and a lift on hover (the sweeping shimmer went, 15.11.2026: Tom didn't like it) */
+.cta[href*="calendar.app.google"],section.ls.black .cta[href*="calendar.app.google"],section.ls.dark .cta[href*="calendar.app.google"],.navcta{
+  position:relative;overflow:hidden;isolation:isolate;color:#fff;
+  background:linear-gradient(135deg,#5652B0 0%,var(--accent) 52%,#2C2960 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(143,139,201,.45),0 12px 30px -10px rgba(61,58,122,.75),0 0 26px rgba(143,139,201,.28);
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .35s}
+.cta[href*="calendar.app.google"]:hover,section.ls.black .cta[href*="calendar.app.google"]:hover,section.ls.dark .cta[href*="calendar.app.google"]:hover,.navcta:hover{
+  color:#fff;transform:translateY(-2px);background:linear-gradient(135deg,#6360C4 0%,#4A46A0 52%,#332F70 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 1px rgba(179,176,218,.7),0 18px 40px -12px rgba(61,58,122,.85),0 0 40px rgba(143,139,201,.55)}
+.vhero .cta[href*="calendar.app.google"]{font-size:16px;padding:17px 28px}
+section.ls.black .cta[href*="calendar.app.google"]{font-size:16px;padding:17px 28px}
+html.mo .cta[href*="calendar.app.google"]{animation:bkglow 3.4s ease-in-out infinite}
+html.mo .cta[href*="calendar.app.google"]:hover{animation:none}
+@keyframes bkglow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(143,139,201,.45),0 12px 30px -10px rgba(61,58,122,.75),0 0 22px rgba(143,139,201,.22)}
+  50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(179,176,218,.7),0 12px 30px -10px rgba(61,58,122,.75),0 0 42px 4px rgba(143,139,201,.55)}}
+@media (max-width:700px){.vhero .cta[href*="calendar.app.google"],section.ls.black .cta[href*="calendar.app.google"]{font-size:15px;padding:14px 20px}}
+
 
 /* motion (see MOTION_JS) */
 html.lenis,html.lenis body{height:auto}
@@ -847,18 +929,29 @@ html.mo [data-rv="mask"].in .mi{transform:none}
 .glist a{font-size:19px;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.3}
 .glist a:hover{color:var(--accent)}
 .glist span{display:block;font-size:15px;color:var(--mid);margin-top:6px;line-height:1.55}
+.glist span.pdate{font-size:13px;color:var(--accent);font-weight:700;margin-top:4px}
+.postimg{margin:6px 0 30px;background:#1A1A1A}
+.postimg img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.prose ul:not(.glist):not(.towns){margin:0 0 18px;padding-left:22px}
+.prose ul:not(.glist):not(.towns) li{margin:0 0 6px;line-height:1.6}
+.prose .revs{margin:8px 0 0}
+.prose .rev blockquote{font-size:15px}
+.prose .revs.one .rev blockquote{font-size:17px}
+@media (max-width:700px){.prose p.lead{font-size:16px}.glist a{font-size:17px}}
+</style><style>
 .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .rev{background:var(--paper);padding:24px 22px;margin:0;display:flex;flex-direction:column}
+.rev .stars{color:var(--accent);font-size:18px;letter-spacing:3px;margin-bottom:12px}
 .rev blockquote{margin:0 0 16px;font-size:16px;line-height:1.6}
 .rev figcaption{margin-top:auto;font-size:14px;color:var(--mid)}
 .rev figcaption b{display:block;color:var(--ink);font-weight:700}
 .rev figcaption span{display:block}
+.revs.one{grid-template-columns:1fr}
+.revs.one .rev{padding:clamp(24px,4vw,44px) clamp(22px,4vw,48px)}
+.revs.one .rev blockquote{font-size:clamp(17px,1.7vw,21px);line-height:1.6;max-width:68ch}
 .revlink{margin-top:20px;font-size:15px}
 .revlink a{color:var(--accent);text-decoration:none}
-.prose .revs{margin:8px 0 0}
-.prose .rev blockquote{font-size:15px}
 @media (max-width:900px){.revs{grid-template-columns:1fr}}
-@media (max-width:700px){.prose p.lead{font-size:16px}.glist a{font-size:17px}}
 </style><script>try{var t=localStorage.getItem('tomoni-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/zk-latin-400.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/zk-latin-900.woff2" crossorigin><style>@font-face{font-family:"Zen Kaku Latin";font-weight:400;font-display:swap;src:url(/fonts/zk-latin-400.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:500;font-display:swap;src:url(/fonts/zk-latin-500.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:700;font-display:swap;src:url(/fonts/zk-latin-700.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}@font-face{font-family:"Zen Kaku Latin";font-weight:900;font-display:swap;src:url(/fonts/zk-latin-900.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2122,U+2190-2193}</style><style>@font-face{font-family:"Zen Fallback";font-weight:400;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica");size-adjust:97.62%;ascent-override:118.83%;descent-override:29.5%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:500;src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica");size-adjust:98.15%;ascent-override:118.18%;descent-override:29.34%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Helvetica Bold");size-adjust:91.64%;ascent-override:126.58%;descent-override:31.43%;line-gap-override:0%}@font-face{font-family:"Zen Fallback";font-weight:900;src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Helvetica Bold");size-adjust:91.89%;ascent-override:126.23%;descent-override:31.34%;line-gap-override:0%}</style>
 </head>
@@ -867,11 +960,11 @@ html.mo [data-rv="mask"].in .mi{transform:none}
   <g transform="translate(-158.0000 733.0000) scale(1 -1)" fill="#1A1A1A"><path d="M158.0 256.0Q158.0 328.0 171.5 410.5Q185.0 493.0 211.0 605.0Q215.0 627.0 215.0 635.0Q215.0 677.0 185.0 713.0Q180.0 720.0 180.0 724.0Q180.0 733.0 192.0 733.0Q198.0 733.0 201.0 731.0Q227.0 717.0 253.5 679.5Q280.0 642.0 280.0 605.0Q280.0 586.0 273.0 571.0Q211.0 435.0 211.0 299.0Q211.0 257.0 217.0 224.0Q223.0 191.0 231.0 172.0Q239.0 153.0 246.0 153.0Q251.0 153.0 254.0 168.0Q263.0 222.0 277.5 264.5Q292.0 307.0 313.0 353.0Q323.0 374.0 331.0 374.0Q339.0 374.0 339.0 359.0Q339.0 349.0 335.0 338.0Q316.0 281.0 300.5 220.5Q285.0 160.0 285.0 98.0Q285.0 69.0 289.0 48.0Q291.0 34.0 291.0 30.0Q291.0 12.0 282.5 3.0Q274.0 -6.0 261.0 -6.0Q249.0 -6.0 237.0 0.5Q225.0 7.0 219.0 16.0Q158.0 114.0 158.0 256.0ZM589.0 441.0Q582.0 441.0 582.0 449.0Q582.0 457.0 592.0 470.0Q605.0 485.0 632.5 507.0Q660.0 529.0 677.0 541.0Q682.0 544.0 682.0 547.0Q682.0 553.0 664.5 556.5Q647.0 560.0 611.0 564.0L568.0 570.0Q538.0 576.0 511.5 591.5Q485.0 607.0 474.0 621.0Q470.0 626.0 470.0 630.0Q470.0 635.0 474.5 637.5Q479.0 640.0 484.0 640.0Q492.0 640.0 505.0 632.0Q508.0 631.0 521.0 625.5Q534.0 620.0 551.0 617.0Q582.0 612.0 620.0 612.0Q666.0 612.0 763.0 622.0Q791.0 625.0 808.5 613.0Q826.0 601.0 826.0 590.0Q826.0 574.0 808.5 563.0Q791.0 552.0 748.0 535.0Q699.0 516.0 666.5 498.5Q634.0 481.0 608.0 453.0Q598.0 441.0 589.0 441.0ZM457.0 213.0Q457.0 240.0 464.0 271.0Q467.0 284.0 479.5 306.5Q492.0 329.0 500.0 328.0Q510.0 328.0 510.0 320.0Q510.0 315.0 504.0 301.0Q498.0 287.0 495.0 279.0Q487.0 258.0 487.0 237.0Q487.0 204.0 507.0 174.5Q527.0 145.0 569.5 127.0Q612.0 109.0 676.0 109.0Q737.0 109.0 801.0 124.0Q811.0 126.0 815.0 126.0Q839.0 126.0 857.0 112.0Q875.0 98.0 875.0 82.0Q875.0 66.0 854.0 59.0Q811.0 45.0 726.0 42.0Q577.0 37.0 517.0 86.5Q457.0 136.0 457.0 213.0Z"/></g>
 </svg>
 </a><a class="back" href="/">&larr; Back to the website</a></div></div><section class="ls"><div class="lwrap prose"><span class="eyebrow">Guides</span><h1>Short guides for businesses<span class="dot">.</span></h1>
-<p class="lead">Written for the people who run a business and have twenty minutes. No jargon, nothing for sale on the page.</p><ul class="glist"><li><a href="/guides/what-ai-can-do-for-a-small-business/">What AI can actually do for a small business.</a><span>A plain-English guide to the jobs AI does well in a small business, the jobs it does badly, and how to tell which is which before spending anything.</span></li><li><a href="/guides/what-admin-is-costing-your-business/">What admin is costing your business.</a><span>A way to put a figure in pounds on the repetitive work in a small business, in an afternoon, with nothing more than a list and a calculator.</span></li><li><a href="/guides/questions-to-ask-an-ai-consultant/">Questions to ask before you hire an AI consultant.</a><span>Ten questions that separate an AI consultant who will leave a small business better off from one who will leave it with a tool nobody uses.</span></li></ul><div class="pcta"><h2>Start with a conversation.</h2><p>Twenty minutes with Tom Williams, at no charge. Tell us how your business runs and where the days go, and we will tell you where the opportunities are likely to be, and whether an assessment is worth your money. If it is not, that is what you will hear.</p><a class="cta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call <span>&rarr;</span></a><div class="cdetails"><a href="tel:+447971512158">07971 512158</a><a href="mailto:tom@withtomoni.com">tom@withtomoni.com</a></div></div>
+<p class="lead">Written for the people who run a business and have twenty minutes. No jargon, nothing for sale on the page.</p><ul class="glist"><li><a href="/guides/what-ai-can-do-for-a-small-business/">What AI can actually do for a small business.</a><span>A plain-English guide to the jobs AI does well in a small business, the jobs it does badly, and how to tell which is which before spending anything.</span></li><li><a href="/guides/what-admin-is-costing-your-business/">What admin is costing your business.</a><span>A way to put a figure in pounds on the repetitive work in a small business, in an afternoon, with nothing more than a list and a calculator.</span></li><li><a href="/guides/questions-to-ask-an-ai-consultant/">Questions to ask before you hire an AI consultant.</a><span>Ten questions that separate an AI consultant who will leave a small business better off from one who will leave it with a tool nobody uses.</span></li></ul><div class="pcta"><h2>Start with a conversation.</h2><p>Twenty minutes with Tom Williams, at no charge. Tell us how your business runs and where the days go, and we will tell you where the opportunities are likely to be, and whether we can help. If we can&rsquo;t, we will say so.</p><a class="cta" href="https://calendar.app.google/3De1SnhdepYQe9cm9" target="_blank" rel="noopener">Book a free scoping call <span>&rarr;</span></a><div class="cdetails"><a href="tel:+447971512158">07971 512158</a><a href="mailto:tom@withtomoni.com">tom@withtomoni.com</a></div></div>
 </div></section><footer class="lfoot"><div class="lwrap"><div class="in"><div><span class="fb" aria-label="Tomoni AI"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-9.586 -9.586 1616.793 1094.416" role="img" aria-label="Tomoni AI">
   <g transform="translate(282.3105 733.0000) scale(1 -1)" fill="currentColor"><path d="M158.0 256.0Q158.0 328.0 171.5 410.5Q185.0 493.0 211.0 605.0Q215.0 627.0 215.0 635.0Q215.0 677.0 185.0 713.0Q180.0 720.0 180.0 724.0Q180.0 733.0 192.0 733.0Q198.0 733.0 201.0 731.0Q227.0 717.0 253.5 679.5Q280.0 642.0 280.0 605.0Q280.0 586.0 273.0 571.0Q211.0 435.0 211.0 299.0Q211.0 257.0 217.0 224.0Q223.0 191.0 231.0 172.0Q239.0 153.0 246.0 153.0Q251.0 153.0 254.0 168.0Q263.0 222.0 277.5 264.5Q292.0 307.0 313.0 353.0Q323.0 374.0 331.0 374.0Q339.0 374.0 339.0 359.0Q339.0 349.0 335.0 338.0Q316.0 281.0 300.5 220.5Q285.0 160.0 285.0 98.0Q285.0 69.0 289.0 48.0Q291.0 34.0 291.0 30.0Q291.0 12.0 282.5 3.0Q274.0 -6.0 261.0 -6.0Q249.0 -6.0 237.0 0.5Q225.0 7.0 219.0 16.0Q158.0 114.0 158.0 256.0ZM589.0 441.0Q582.0 441.0 582.0 449.0Q582.0 457.0 592.0 470.0Q605.0 485.0 632.5 507.0Q660.0 529.0 677.0 541.0Q682.0 544.0 682.0 547.0Q682.0 553.0 664.5 556.5Q647.0 560.0 611.0 564.0L568.0 570.0Q538.0 576.0 511.5 591.5Q485.0 607.0 474.0 621.0Q470.0 626.0 470.0 630.0Q470.0 635.0 474.5 637.5Q479.0 640.0 484.0 640.0Q492.0 640.0 505.0 632.0Q508.0 631.0 521.0 625.5Q534.0 620.0 551.0 617.0Q582.0 612.0 620.0 612.0Q666.0 612.0 763.0 622.0Q791.0 625.0 808.5 613.0Q826.0 601.0 826.0 590.0Q826.0 574.0 808.5 563.0Q791.0 552.0 748.0 535.0Q699.0 516.0 666.5 498.5Q634.0 481.0 608.0 453.0Q598.0 441.0 589.0 441.0ZM457.0 213.0Q457.0 240.0 464.0 271.0Q467.0 284.0 479.5 306.5Q492.0 329.0 500.0 328.0Q510.0 328.0 510.0 320.0Q510.0 315.0 504.0 301.0Q498.0 287.0 495.0 279.0Q487.0 258.0 487.0 237.0Q487.0 204.0 507.0 174.5Q527.0 145.0 569.5 127.0Q612.0 109.0 676.0 109.0Q737.0 109.0 801.0 124.0Q811.0 126.0 815.0 126.0Q839.0 126.0 857.0 112.0Q875.0 98.0 875.0 82.0Q875.0 66.0 854.0 59.0Q811.0 45.0 726.0 42.0Q577.0 37.0 517.0 86.5Q457.0 136.0 457.0 213.0Z"/></g>
   <g transform="translate(0.0000 1072.8978) scale(0.156482 -0.156482)" fill="currentColor"><path d="M220 0V614H0V700H531V614H312V0Z"/><path d="M1643.1 -15.0Q1548.1 -15.0 1475.1 30.0Q1402.1 75.0 1360.6 157.0Q1319.1 239.0 1319.1 350.0Q1319.1 461.0 1360.6 543.5Q1402.1 626.0 1475.1 671.5Q1548.1 717.0 1643.1 717.0Q1738.1 717.0 1810.6 671.5Q1883.1 626.0 1924.6 543.5Q1966.1 461.0 1966.1 350.0Q1966.1 239.0 1924.6 157.0Q1883.1 75.0 1810.6 30.0Q1738.1 -15.0 1643.1 -15.0ZM1643.1 75.0Q1711.1 75.0 1762.6 109.0Q1814.1 143.0 1842.6 204.5Q1871.1 266.0 1871.1 350.0Q1871.1 435.0 1842.6 496.5Q1814.1 558.0 1762.6 592.0Q1711.1 626.0 1643.1 626.0Q1575.1 626.0 1523.6 592.0Q1472.1 558.0 1443.1 496.5Q1414.1 435.0 1414.1 350.0Q1414.1 266.0 1443.1 204.5Q1472.1 143.0 1523.6 109.0Q1575.1 75.0 1643.1 75.0Z"/><path d="M2754.2 0.0V700.0H2845.2L3063.2 353.0L3280.2 700.0H3373.2V0.0H3279.2V541.0L3089.2 233.0H3037.2L2846.2 541.0V0.0Z"/><path d="M4485.3 -15.0Q4390.3 -15.0 4317.3 30.0Q4244.3 75.0 4202.8 157.0Q4161.3 239.0 4161.3 350.0Q4161.3 461.0 4202.8 543.5Q4244.3 626.0 4317.3 671.5Q4390.3 717.0 4485.3 717.0Q4580.3 717.0 4652.8 671.5Q4725.3 626.0 4766.8 543.5Q4808.3 461.0 4808.3 350.0Q4808.3 239.0 4766.8 157.0Q4725.3 75.0 4652.8 30.0Q4580.3 -15.0 4485.3 -15.0ZM4485.3 75.0Q4553.3 75.0 4604.8 109.0Q4656.3 143.0 4684.8 204.5Q4713.3 266.0 4713.3 350.0Q4713.3 435.0 4684.8 496.5Q4656.3 558.0 4604.8 592.0Q4553.3 626.0 4485.3 626.0Q4417.3 626.0 4365.8 592.0Q4314.3 558.0 4285.3 496.5Q4256.3 435.0 4256.3 350.0Q4256.3 266.0 4285.3 204.5Q4314.3 143.0 4365.8 109.0Q4417.3 75.0 4485.3 75.0Z"/><path d="M5596.400000000001 0.0V700.0H5687.400000000001L6046.400000000001 161.0V700.0H6138.400000000001V0.0H6050.400000000001L5687.400000000001 549.0V0.0Z"/><path d="M6926.500000000001 0.0V700.0H7017.500000000001V0.0Z"/><path d="M7805.60 366.00a54.90 54.90 0 1 0 109.80 0a54.90 54.90 0 1 0 -109.80 0Z"/><path d="M8703.500000000002 0.0 8976.500000000002 700.0H9057.500000000002L9330.500000000002 0.0H9227.500000000002L9160.500000000002 179.0H8871.500000000002L8804.500000000002 0.0ZM8902.500000000002 265.0H9129.500000000002L9017.500000000002 569.0Z"/><path d="M10118.600000000002 0.0V700.0H10209.600000000002V0.0Z"/></g>
-</svg></span></div><div><a class="plink" href="/north-wales/">North Wales</a><a class="plink" href="/chester-cheshire/">Chester and Cheshire</a><a class="plink" href="/guides/">Guides</a><a class="plink" href="/#calculator">Cost calculator</a><a class="plink" href="/privacy.html">Privacy notice</a></div></div></div></footer><style>
+</svg></span></div><div><a class="plink" href="/north-wales/">North Wales</a><a class="plink" href="/chester-cheshire/">Chester and Cheshire</a><a class="plink" href="/guides/">Guides</a><a class="plink" href="/blog/">Blog</a><a class="plink" href="/#calculator">Cost calculator</a><a class="plink" href="/privacy.html">Privacy notice</a></div></div></div></footer><style>
 .lfoot .in{align-items:center}
 .lfoot .plink{font-size:14px;color:var(--mid);text-decoration:none}
 .lfoot .plink + .plink{margin-left:22px}
